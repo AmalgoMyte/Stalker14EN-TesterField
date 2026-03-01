@@ -51,6 +51,12 @@ public sealed class STBulletinContactPosterEvent : CartridgeMessageEvent
 }
 
 /// <summary>
+/// Client requests toggling mute on a bulletin board cartridge (suppresses ringer, badge still appears).
+/// </summary>
+[Serializable, NetSerializable]
+public sealed class STBulletinToggleMuteEvent : CartridgeMessageEvent { }
+
+/// <summary>
 /// Local by-ref entity event raised on a bulletin board cartridge entity to request
 /// opening a specific offer. Decouples messenger → bulletin board dependency.
 /// </summary>

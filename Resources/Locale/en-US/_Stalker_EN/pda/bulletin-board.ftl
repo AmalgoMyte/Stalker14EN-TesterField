@@ -14,5 +14,9 @@ st-bulletin-char-counter = {$remaining}/{$max}
 st-bulletin-description-label = DESCRIPTION
 st-bulletin-post-submit = Post
 
+# Mute toggle
+st-bulletin-mute = Mute
+st-bulletin-unmute = Unmute
+
 # Tab count badge (used for both primary and secondary)
 st-bulletin-tab-count = {$name} ({$count})

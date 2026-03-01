@@ -39,6 +39,12 @@ public sealed partial class STBulletinServerComponent : Component
     public TimeSpan NextContactTime;
 
     /// <summary>
+    /// Whether notifications for this board cartridge are muted (badge still appears, ringer suppressed).
+    /// </summary>
+    [ViewVariables]
+    public bool Muted;
+
+    /// <summary>
     /// One-shot search pre-fill. Consumed and cleared by the next UI state update.
     /// Set by external systems (e.g. messenger offer link navigation).
     /// </summary>

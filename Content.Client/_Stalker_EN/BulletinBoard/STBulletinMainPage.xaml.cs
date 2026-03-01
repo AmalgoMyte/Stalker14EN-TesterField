@@ -24,6 +24,9 @@ public sealed partial class STBulletinMainPage : BoxContainer
     /// <summary>Raised when the user presses Contact on another player's offer. Args: (posterMessengerId, offerId).</summary>
     public event Action<string, uint>? OnContactPressed;
 
+    /// <summary>Raised when the user presses the Mute/Unmute button.</summary>
+    public event Action? OnMuteToggled;
+
     /// <summary>The last config received from the server. Exposed for the post page to read.</summary>
     public STBulletinBoardConfig? LastConfig => _lastState?.Config;
 
@@ -57,6 +60,8 @@ public sealed partial class STBulletinMainPage : BoxContainer
             var category = _showingPrimary ? STBulletinCategory.Primary : STBulletinCategory.Secondary;
             OnPostPressed?.Invoke(category);
         };
+
+        MuteButton.OnPressed += _ => OnMuteToggled?.Invoke();
 
         SearchBar.OnTextChanged += _ =>
         {
@@ -94,6 +99,7 @@ public sealed partial class STBulletinMainPage : BoxContainer
             _showingPrimary = activeCategory == STBulletinCategory.Primary;
 
         HeaderLabel.Text = Loc.GetString(config.HeaderTitle);
+        MuteButton.Text = Loc.GetString(state.IsMuted ? "st-bulletin-unmute" : "st-bulletin-mute");
         SearchBar.PlaceHolder = Loc.GetString(config.SearchPlaceholder);
 
         var primaryCount = state.PrimaryOffers.Count;

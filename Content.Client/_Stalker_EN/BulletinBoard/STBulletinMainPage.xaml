@@ -9,7 +9,8 @@
     <!-- Header -->
     <BoxContainer Orientation="Horizontal" Margin="0 0 0 4" MinSize="0 28">
         <AnimatedTextureRect Name="HeaderIcon" Access="Public" SetSize="20 20" VerticalAlignment="Center" Margin="0 0 16 0"/>
-        <Label Name="HeaderLabel" StyleClasses="LabelHeading" VerticalAlignment="Center"/>
+        <Label Name="HeaderLabel" StyleClasses="LabelHeading" VerticalAlignment="Center" HorizontalExpand="True"/>
+        <Button Name="MuteButton" MinWidth="50" MinHeight="24" Margin="4 0 0 0"/>
     </BoxContainer>
 
     <customControls:HSeparator Margin="0 2 0 2"/>

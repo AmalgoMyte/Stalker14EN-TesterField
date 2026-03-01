@@ -117,11 +117,10 @@ namespace Content.Client.PDA
 
             _menu.UpdateState(updateState);
 
-            // stalker-en-changes-start: hide password button for non-owners
+            // stalker-en-changes-start: hide password button for non-owners (use entity comparison)
             var isOwner = _playerMgr.LocalEntity.HasValue
-                && updateState.PdaOwnerInfo.ActualOwnerName is not null
-                && EntMan.GetComponentOrNull<MetaDataComponent>(_playerMgr.LocalEntity.Value)?.EntityName
-                    == updateState.PdaOwnerInfo.ActualOwnerName;
+                && updateState.PdaOwnerInfo.PdaOwnerEntity.HasValue
+                && EntMan.GetEntity(updateState.PdaOwnerInfo.PdaOwnerEntity.Value) == _playerMgr.LocalEntity.Value;
             _menu.SetPasswordButton.Visible = isOwner;
             // stalker-en-changes-end
         }

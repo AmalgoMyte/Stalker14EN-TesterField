@@ -59,6 +59,12 @@ public sealed partial class STBulletinBoardUi : UIFragment
             _postPage.SetCategory(category, _mainPage.LastConfig);
         };
 
+        _mainPage.OnMuteToggled += () =>
+        {
+            userInterface.SendMessage(new CartridgeUiMessage(
+                new STBulletinToggleMuteEvent()));
+        };
+
         _mainPage.OnWithdrawPressed += offerId =>
         {
             userInterface.SendMessage(new CartridgeUiMessage(

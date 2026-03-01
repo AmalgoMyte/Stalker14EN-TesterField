@@ -39,6 +39,11 @@ public sealed class STBulletinUiState : BoundUserInterfaceState
     /// </summary>
     public readonly STBulletinCategory? ActiveCategory;
 
+    /// <summary>
+    /// Whether this board cartridge's notifications are muted (ringer suppressed, badge still appears).
+    /// </summary>
+    public readonly bool IsMuted;
+
     public STBulletinUiState(
         STBulletinBoardConfig config,
         List<STBulletinOffer> primaryOffers,
@@ -46,6 +51,7 @@ public sealed class STBulletinUiState : BoundUserInterfaceState
         string ownerCharacterName,
         int myPrimaryCount,
         int mySecondaryCount,
+        bool isMuted,
         string? searchQuery = null,
         STBulletinCategory? activeCategory = null)
     {
@@ -55,6 +61,7 @@ public sealed class STBulletinUiState : BoundUserInterfaceState
         OwnerCharacterName = ownerCharacterName;
         MyPrimaryCount = myPrimaryCount;
         MySecondaryCount = mySecondaryCount;
+        IsMuted = isMuted;
         SearchQuery = searchQuery;
         ActiveCategory = activeCategory;
     }

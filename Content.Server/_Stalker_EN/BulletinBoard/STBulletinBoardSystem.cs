@@ -154,6 +154,9 @@ public sealed class STBulletinBoardSystem : EntitySystem
             case STBulletinContactPosterEvent contact:
                 OnContactPoster(ent, server, contact, args);
                 break;
+            case STBulletinToggleMuteEvent:
+                OnToggleMute(ent, server, args);
+                break;
         }
     }
 
@@ -218,7 +221,7 @@ public sealed class STBulletinBoardSystem : EntitySystem
             $"desc=\"{description}\"");
 
         BroadcastUiUpdate(board.BoardTypeId);
-        NotifyBoardRecipients(board.BoardTypeId, args.Actor);
+        NotifyBoardRecipients(board.BoardTypeId, args.Actor, post.Category);
     }
 
     private void OnWithdrawOffer(
@@ -283,6 +286,15 @@ public sealed class STBulletinBoardSystem : EntitySystem
         _adminLogger.Add(LogType.Action, LogImpact.Low,
             $"{ToPrettyString(args.Actor):player} opened DM from bulletin board with: " +
             $"{contact.PosterMessengerId} (offer #{contact.OfferId})");
+    }
+
+    private void OnToggleMute(
+        Entity<STBulletinBoardComponent> ent,
+        STBulletinServerComponent server,
+        CartridgeMessageEvent args)
+    {
+        server.Muted = !server.Muted;
+        UpdateUiState(ent, GetEntity(args.LoaderUid), server);
     }
 
     #endregion
@@ -351,6 +363,7 @@ public sealed class STBulletinBoardSystem : EntitySystem
             server.OwnerCharacterName,
             myPrimaryCount,
             mySecondaryCount,
+            server.Muted,
             searchQuery,
             activeCategory);
     }
@@ -515,9 +528,10 @@ public sealed class STBulletinBoardSystem : EntitySystem
 
     /// <summary>
     /// Rings all PDAs with a bulletin board cartridge of the given type, except the poster's own PDA.
+    /// For secondary offers on merc-restricted boards, only notifies band members.
     /// Also sets the notification badge on the cartridge for the program list.
     /// </summary>
-    private void NotifyBoardRecipients(string boardTypeId, EntityUid posterMob)
+    private void NotifyBoardRecipients(string boardTypeId, EntityUid posterMob, STBulletinCategory category)
     {
         var query = EntityQueryEnumerator<STBulletinBoardComponent, STBulletinServerComponent, CartridgeComponent>();
         while (query.MoveNext(out var uid, out var board, out var server, out var cartridge))
@@ -532,13 +546,21 @@ public sealed class STBulletinBoardSystem : EntitySystem
             if (server.OwnerMob == posterMob)
                 continue;
 
-            // Ring the PDA
-            if (TryComp<RingerComponent>(loaderUid, out var ringer))
-                _ringer.RingerPlayRingtone((loaderUid, ringer));
+            // For secondary offers on merc-restricted boards, skip non-band-members
+            if (category == STBulletinCategory.Secondary
+                && TryComp<STMercBoardRestrictionsComponent>(uid, out var restrictions)
+                && !IsBandMemberCached(server, restrictions))
+            {
+                continue;
+            }
 
             // Set notification badge
             cartridge.HasNotification = true;
             Dirty(uid, cartridge);
+
+            // Ring the PDA (unless muted)
+            if (!server.Muted && TryComp<RingerComponent>(loaderUid, out var ringer))
+                _ringer.RingerPlayRingtone((loaderUid, ringer));
         }
     }
 
