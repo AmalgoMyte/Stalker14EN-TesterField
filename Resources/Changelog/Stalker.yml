@@ -949,5 +949,51 @@
   id: 107
   time: '2026-03-01T14:57:21.421107+00:00'
   url: https://github.com/coolmankid12345/stalker-14-EN/pull/554
+- author: teecoding
+  changes:
+  - message: Merc Board PDA cartridge for posting and browsing mercenary services
+      and job requests
+    type: Add
+  - message: Trade Board PDA cartridge for posting and browsing buy/sell offers
+    type: Add
+  - message: Clickable offer links in PDA messenger that jump straight to the relevant
+      board listing
+    type: Add
+  - message: Copy link button on board offers to share them in chat
+    type: Add
+  - message: PDA notifications and badge counts for new board posts
+    type: Add
+  - message: Offer IDs shown on board cards for easy reference
+    type: Add
+  - message: Search bar on bulletin boards
+    type: Add
+  - message: Program icons in PDA cartridge headers
+    type: Add
+  - message: PDA and messenger now work immediately when picked up by hand
+    type: Add
+  - message: PDA available for purchase in the Clear Sky shop
+    type: Add
+  - message: PDA password button only visible to the PDA's owner
+    type: Tweak
+  - message: Trading and Jobs messenger channels replaced by the dedicated Trade Board
+    type: Tweak
+  - message: Messenger messages now display with a cleaner webhook-style format
+    type: Tweak
+  - message: Messenger contacts are now tied to unique IDs instead of character names,
+      preventing impersonation
+    type: Tweak
+  - message: PDA password max length reduced to 16 characters
+    type: Tweak
+  - message: PDAs can now be stored in your personal stash
+    type: Tweak
+  - message: Trophy weight no longer counts nearby players in its calculation
+    type: Fix
+  - message: Switching between PDA programs no longer shows the wrong tab
+    type: Fix
+  - message: Messenger chat now scrolls to the bottom reliably
+    type: Fix
+  id: 108
+  time: '2026-03-01T16:15:24.722590+00:00'
+  url: https://github.com/coolmankid12345/stalker-14-EN/pull/556
 Name: Stalker
 Order: -1
