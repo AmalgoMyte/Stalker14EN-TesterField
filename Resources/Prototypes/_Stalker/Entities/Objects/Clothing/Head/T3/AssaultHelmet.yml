@@ -35,9 +35,9 @@
   description: боевой шлем марки «Зенит» третьего класса защиты.
   components:
   - type: Sprite
-    sprite: _Stalker/Objects/Clothing/hats/assault_helm.rsi
+    sprite: _Stalker_EN/Objects/Clothing/hats/assault_helm.rsi
   - type: Clothing
-    sprite: _Stalker/Objects/Clothing/hats/assault_helm.rsi
+    sprite: _Stalker_EN/Objects/Clothing/hats/assault_helm.rsi
 
 - type: entity
   parent: STClothingHeadHelmetCombatT3Base
@@ -68,9 +68,9 @@
   description: боевой шлем марки «Зенит» третьего класса защиты в зелёном цвете.
   components:
   - type: Sprite
-    sprite: _Stalker/Objects/Clothing/hats/assault_helm_military.rsi
+    sprite: _Stalker_EN/Objects/Clothing/hats/assault_helm_military.rsi
   - type: Clothing
-    sprite: _Stalker/Objects/Clothing/hats/assault_helm_military.rsi
+    sprite: _Stalker_EN/Objects/Clothing/hats/assault_helm_military.rsi
 
 - type: entity
   parent: STClothingHeadHelmetCombatT3Base
@@ -79,9 +79,9 @@
   description: боевой шлем марки «Зенит» третьего класса защиты.
   components:
   - type: Sprite
-    sprite: _Stalker/Objects/Clothing/hats/assault_helm_bandit.rsi
+    sprite: _Stalker_EN/Objects/Clothing/hats/assault_helm_bandit.rsi
   - type: Clothing
-    sprite: _Stalker/Objects/Clothing/hats/assault_helm_bandit.rsi
+    sprite: _Stalker_EN/Objects/Clothing/hats/assault_helm_bandit.rsi
 
 - type: entity
   parent: STClothingHeadHelmetCombatT3Base
@@ -101,9 +101,9 @@
   description: боевой шлем марки «Зенит» третьего класса защиты.
   components:
   - type: Sprite
-    sprite: _Stalker/Objects/Clothing/hats/assault_helm_merc.rsi
+    sprite: _Stalker_EN/Objects/Clothing/hats/assault_helm_merc.rsi
   - type: Clothing
-    sprite: _Stalker/Objects/Clothing/hats/assault_helm_merc.rsi
+    sprite: _Stalker_EN/Objects/Clothing/hats/assault_helm_merc.rsi
 
 - type: entity
   parent: STClothingHeadHelmetCombatT3Base
