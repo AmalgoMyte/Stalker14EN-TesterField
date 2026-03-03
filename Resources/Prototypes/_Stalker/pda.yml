@@ -74,6 +74,7 @@
   - type: CartridgeLoader
     uiKey: enum.PdaUiKey.Key
     preinstalled:
+      - NanoTaskCartridge # stalker-en-changes
       - NotekeeperCartridge
       - STMessengerCartridge # stalker-en-changes: replaced upstream messenger
       - STFactionRelationsCartridge # stalker-en-changes
@@ -152,6 +153,13 @@
   components:
   - type: PdaBorderColor
     borderColor: "#717059"
+  - type: Pda # stalker-en-changes-start
+    penSlot:
+      startingItem: Pen
+      priority: 1
+      whitelist:
+        tags:
+        - Write
   - type: ItemSlots
     slots:
       cell_slot:
@@ -163,6 +171,11 @@
         whitelist:
           tags:
             - Dogtag
+  - type: PointLight
+    enabled: false
+    radius: 5
+    energy: 2.5
+    netsync: false # stalker-en-changes-end
 
 - type: entity
   parent: [ BaseStalkerPDA, GeigerCounter]
@@ -184,6 +197,13 @@
   - type: Geiger
     showControl: true
     showExamine: true
+  - type: Pda # stalker-en-changes-start
+    penSlot:
+      startingItem: Pen
+      priority: 1
+      whitelist:
+        tags:
+        - Write
   - type: ItemSlots
     slots:
       cell_slot:
@@ -201,6 +221,11 @@
       flatReductions:
         Radiation: 2
         Psy: 2
+  - type: PointLight
+    enabled: false
+    radius: 5
+    energy: 2.5
+    netsync: false # stalker-en-changes-end
 
 - type: entity
   parent: [ BaseStalkerPDA, GeigerCounter ]
@@ -221,6 +246,13 @@
       path: "/Audio/Items/Medical/healthscanner.ogg"
   - type: PdaBorderColor
     borderColor: "#3c1a69"
+  - type: Pda # stalker-en-changes-start
+    penSlot:
+      startingItem: Pen
+      priority: 1
+      whitelist:
+        tags:
+        - Write
   - type: ItemSlots
     slots:
       cell_slot:
@@ -232,6 +264,11 @@
         whitelist:
           tags:
             - Dogtag
+  - type: PointLight
+    enabled: false
+    radius: 5
+    energy: 2.5
+    netsync: false # stalker-en-changes-end
 
 - type: entity
   parent: BaseStalkerPDA
@@ -252,6 +289,13 @@
       path: "/Audio/Items/Medical/healthscanner.ogg"
   - type: PdaBorderColor
     borderColor: "#094a83"
+  - type: Pda # stalker-en-changes-start
+    penSlot:
+      startingItem: Pen
+      priority: 1
+      whitelist:
+        tags:
+        - Write
   - type: ItemSlots
     slots:
       cell_slot:
@@ -263,6 +307,11 @@
         whitelist:
           tags:
             - Dogtag
+  - type: PointLight
+    enabled: false
+    radius: 5
+    energy: 2.5
+    netsync: false # stalker-en-changes-end
 
 - type: entity
   parent: BaseStalkerPDA
@@ -279,11 +328,19 @@
       enum.PdaVisuals.PdaType:
         !type:String
         band_on
+  - type: Pda # stalker-en-changes-start
+    penSlot:
+      startingItem: Pen
+      priority: 1
+      whitelist:
+        tags:
+        - Write
   - type: Boombox
   - type: ItemSlots
     slots:
       cassette_slot:
         name: Cassete
+        priority: 2
         whitelist:
           tags:
             - Cassete
@@ -296,6 +353,11 @@
         whitelist:
           tags:
             - Dogtag
+  - type: PointLight
+    enabled: false
+    radius: 5
+    energy: 2.5
+    netsync: false # stalker-en-changes-end
 
 - type: entity
   parent: BaseStalkerPDA
@@ -312,6 +374,13 @@
       enum.PdaVisuals.PdaType:
         !type:String
         dolg_on
+  - type: Pda # stalker-en-changes-start
+    penSlot:
+      startingItem: Pen
+      priority: 1
+      whitelist:
+        tags:
+        - Write
   - type: ItemSlots
     slots:
       cell_slot:
@@ -327,7 +396,7 @@
     enabled: false
     radius: 5
     energy: 2.5
-    netsync: false
+    netsync: false # stalker-en-changes-end
 
 - type: entity
   parent: BaseStalkerPDA
@@ -344,6 +413,13 @@
       enum.PdaVisuals.PdaType:
         !type:String
         svo_on
+  - type: Pda # stalker-en-changes-start
+    penSlot:
+      startingItem: Pen
+      priority: 1
+      whitelist:
+        tags:
+        - Write
   - type: ItemSlots
     slots:
       cell_slot:
@@ -355,6 +431,11 @@
         whitelist:
           tags:
             - Dogtag
+  - type: PointLight
+    enabled: false
+    radius: 5
+    energy: 2.5
+    netsync: false # stalker-en-changes-end
 
 - type: entity
   parent: BaseStalkerPDA
@@ -380,6 +461,13 @@
     tags:
     - GPS
     - Flashlight
+  - type: Pda # stalker-en-changes-start
+    penSlot:
+      startingItem: Pen
+      priority: 1
+      whitelist:
+        tags:
+        - Write
   - type: ItemSlots
     slots:
       cell_slot:
@@ -387,11 +475,15 @@
         startingItem: PowerCellSmall
       dogtag_slot:
         name: Dogtag
-#        startingItem: ClothingNeckDogtagStalker
+  #      startingItem: ClothingNeckDogtagStalker
         whitelist:
           tags:
             - Dogtag
-
+  - type: PointLight
+    enabled: false
+    radius: 5
+    energy: 2.5
+    netsync: false # stalker-en-changes-end
 
 - type: entity
   parent: BaseStalkerPDA
@@ -409,6 +501,13 @@
         svo_on
   - type: PdaBorderColor
     borderColor: "#285714"
+  - type: Pda # stalker-en-changes-start
+    penSlot:
+      startingItem: Pen
+      priority: 1
+      whitelist:
+        tags:
+        - Write
   - type: ItemSlots
     slots:
       cell_slot:
@@ -424,7 +523,7 @@
     enabled: false
     radius: 5
     energy: 2.5
-    netsync: false
+    netsync: false # stalker-en-changes-end
 
 - type: entity
   parent: BaseStalkerPDA
@@ -441,6 +540,13 @@
       enum.PdaVisuals.PdaType:
         !type:String
         pilgrim_on
+  - type: Pda # stalker-en-changes-start
+    penSlot:
+      startingItem: Pen
+      priority: 1
+      whitelist:
+        tags:
+        - Write
   - type: ItemSlots
     slots:
       cell_slot:
@@ -452,6 +558,11 @@
         whitelist:
           tags:
             - Dogtag
+  - type: PointLight
+    enabled: false
+    radius: 5
+    energy: 2.5
+    netsync: false # stalker-en-changes-end
 
 - type: entity
   parent: BaseStalkerPDA
@@ -469,11 +580,19 @@
       enum.PdaVisuals.PdaType:
         !type:String
         mono_on
+  - type: Pda # stalker-en-changes-start
+    penSlot:
+      startingItem: Pen
+      priority: 1
+      whitelist:
+        tags:
+        - Write
   - type: Boombox
   - type: ItemSlots
     slots:
       cassette_slot:
         name: Cassete
+        priority: 2
         whitelist:
           tags:
             - Cassete
@@ -490,6 +609,11 @@
     damage:
       types:
         Radiation: 1
+  - type: PointLight
+    enabled: false
+    radius: 5
+    energy: 2.5
+    netsync: false # stalker-en-changes-end
 
 - type: entity
   parent: BaseStalkerPDA
@@ -506,10 +630,19 @@
       enum.PdaVisuals.PdaType:
         !type:String
         band_on
+  - type: Pda # stalker-en-changes-start
+    penSlot:
+      startingItem: Pen
+      priority: 1
+      whitelist:
+        tags:
+        - Write
+  - type: Boombox
   - type: ItemSlots
     slots:
       cassette_slot:
         name: Cassete
+        priority: 2
         whitelist:
           tags:
             - Cassete
@@ -527,3 +660,8 @@
     delay: 1
     offset: 14
     useInHand: true
+  - type: PointLight
+    enabled: false
+    radius: 5
+    energy: 2.5
+    netsync: false # stalker-en-changes-end
