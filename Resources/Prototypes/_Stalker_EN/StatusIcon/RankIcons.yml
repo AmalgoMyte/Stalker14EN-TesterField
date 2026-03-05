@@ -1,0 +1,238 @@
+# Abstract base — all rank icons share these properties
+- type: jobIcon
+  abstract: true
+  id: STRankBase
+  locationPreference: Right
+  isShaded: true
+  hideOnStealth: true
+  priority: 11
+  allowSelection: false
+  layer: Mod
+  xOffset: 12
+  icon:
+    sprite: /Textures/_Stalker_EN/Icons/Ranks/ranks.rsi
+    state: Novice_1
+
+- type: jobIcon
+  parent: STRankBase
+  id: STRankNovice1
+  icon:
+    sprite: /Textures/_Stalker_EN/Icons/Ranks/ranks.rsi
+    state: Novice_1
+
+- type: jobIcon
+  parent: STRankBase
+  id: STRankNovice2
+  icon:
+    sprite: /Textures/_Stalker_EN/Icons/Ranks/ranks.rsi
+    state: Novice_2
+
+- type: jobIcon
+  parent: STRankBase
+  id: STRankNovice3
+  icon:
+    sprite: /Textures/_Stalker_EN/Icons/Ranks/ranks.rsi
+    state: Novice_3
+
+- type: jobIcon
+  parent: STRankBase
+  id: STRankNovice4
+  icon:
+    sprite: /Textures/_Stalker_EN/Icons/Ranks/ranks.rsi
+    state: Novice_4
+
+- type: jobIcon
+  parent: STRankBase
+  id: STRankTrainee1
+  icon:
+    sprite: /Textures/_Stalker_EN/Icons/Ranks/ranks.rsi
+    state: Trainee_1
+
+- type: jobIcon
+  parent: STRankBase
+  id: STRankTrainee2
+  icon:
+    sprite: /Textures/_Stalker_EN/Icons/Ranks/ranks.rsi
+    state: Trainee_2
+
+- type: jobIcon
+  parent: STRankBase
+  id: STRankTrainee3
+  icon:
+    sprite: /Textures/_Stalker_EN/Icons/Ranks/ranks.rsi
+    state: Trainee_3
+
+- type: jobIcon
+  parent: STRankBase
+  id: STRankTrainee4
+  icon:
+    sprite: /Textures/_Stalker_EN/Icons/Ranks/ranks.rsi
+    state: Trainee_4
+
+- type: jobIcon
+  parent: STRankBase
+  id: STRankExperienced1
+  icon:
+    sprite: /Textures/_Stalker_EN/Icons/Ranks/ranks.rsi
+    state: Experienced_1
+
+- type: jobIcon
+  parent: STRankBase
+  id: STRankExperienced2
+  icon:
+    sprite: /Textures/_Stalker_EN/Icons/Ranks/ranks.rsi
+    state: Experienced_2
+
+- type: jobIcon
+  parent: STRankBase
+  id: STRankExperienced3
+  icon:
+    sprite: /Textures/_Stalker_EN/Icons/Ranks/ranks.rsi
+    state: Experienced_3
+
+- type: jobIcon
+  parent: STRankBase
+  id: STRankExperienced4
+  icon:
+    sprite: /Textures/_Stalker_EN/Icons/Ranks/ranks.rsi
+    state: Experienced_4
+
+- type: jobIcon
+  parent: STRankBase
+  id: STRankProfessional1
+  icon:
+    sprite: /Textures/_Stalker_EN/Icons/Ranks/ranks.rsi
+    state: Professional_1
+
+- type: jobIcon
+  parent: STRankBase
+  id: STRankProfessional2
+  icon:
+    sprite: /Textures/_Stalker_EN/Icons/Ranks/ranks.rsi
+    state: Professional_2
+
+- type: jobIcon
+  parent: STRankBase
+  id: STRankProfessional3
+  icon:
+    sprite: /Textures/_Stalker_EN/Icons/Ranks/ranks.rsi
+    state: Professional_3
+
+- type: jobIcon
+  parent: STRankBase
+  id: STRankProfessional4
+  icon:
+    sprite: /Textures/_Stalker_EN/Icons/Ranks/ranks.rsi
+    state: Professional_4
+
+- type: jobIcon
+  parent: STRankBase
+  id: STRankVeteran1
+  icon:
+    sprite: /Textures/_Stalker_EN/Icons/Ranks/ranks.rsi
+    state: Veteran_1
+
+- type: jobIcon
+  parent: STRankBase
+  id: STRankVeteran2
+  icon:
+    sprite: /Textures/_Stalker_EN/Icons/Ranks/ranks.rsi
+    state: Veteran_2
+
+- type: jobIcon
+  parent: STRankBase
+  id: STRankVeteran3
+  icon:
+    sprite: /Textures/_Stalker_EN/Icons/Ranks/ranks.rsi
+    state: Veteran_3
+
+- type: jobIcon
+  parent: STRankBase
+  id: STRankVeteran4
+  icon:
+    sprite: /Textures/_Stalker_EN/Icons/Ranks/ranks.rsi
+    state: Veteran_4
+
+- type: jobIcon
+  parent: STRankBase
+  id: STRankExpert1
+  icon:
+    sprite: /Textures/_Stalker_EN/Icons/Ranks/ranks.rsi
+    state: Expert_1
+
+- type: jobIcon
+  parent: STRankBase
+  id: STRankExpert2
+  icon:
+    sprite: /Textures/_Stalker_EN/Icons/Ranks/ranks.rsi
+    state: Expert_2
+
+- type: jobIcon
+  parent: STRankBase
+  id: STRankExpert3
+  icon:
+    sprite: /Textures/_Stalker_EN/Icons/Ranks/ranks.rsi
+    state: Expert_3
+
+- type: jobIcon
+  parent: STRankBase
+  id: STRankExpert4
+  icon:
+    sprite: /Textures/_Stalker_EN/Icons/Ranks/ranks.rsi
+    state: Expert_4
+
+- type: jobIcon
+  parent: STRankBase
+  id: STRankMaster1
+  icon:
+    sprite: /Textures/_Stalker_EN/Icons/Ranks/ranks.rsi
+    state: Master_1
+
+- type: jobIcon
+  parent: STRankBase
+  id: STRankMaster2
+  icon:
+    sprite: /Textures/_Stalker_EN/Icons/Ranks/ranks.rsi
+    state: Master_2
+
+- type: jobIcon
+  parent: STRankBase
+  id: STRankMaster3
+  icon:
+    sprite: /Textures/_Stalker_EN/Icons/Ranks/ranks.rsi
+    state: Master_3
+
+- type: jobIcon
+  parent: STRankBase
+  id: STRankMaster4
+  icon:
+    sprite: /Textures/_Stalker_EN/Icons/Ranks/ranks.rsi
+    state: Master_4
+
+- type: jobIcon
+  parent: STRankBase
+  id: STRankLegend1
+  icon:
+    sprite: /Textures/_Stalker_EN/Icons/Ranks/ranks.rsi
+    state: Legend_1
+
+- type: jobIcon
+  parent: STRankBase
+  id: STRankLegend2
+  icon:
+    sprite: /Textures/_Stalker_EN/Icons/Ranks/ranks.rsi
+    state: Legend_2
+
+- type: jobIcon
+  parent: STRankBase
+  id: STRankLegend3
+  icon:
+    sprite: /Textures/_Stalker_EN/Icons/Ranks/ranks.rsi
+    state: Legend_3
+
+- type: jobIcon
+  parent: STRankBase
+  id: STRankLegend4
+  icon:
+    sprite: /Textures/_Stalker_EN/Icons/Ranks/ranks.rsi
+    state: Legend_4

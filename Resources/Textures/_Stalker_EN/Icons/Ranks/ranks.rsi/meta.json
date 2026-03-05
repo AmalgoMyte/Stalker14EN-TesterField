@@ -1,0 +1,43 @@
+{
+  "version": 1,
+  "license": "CC-BY-SA-3.0",
+  "copyright": "Stalker-14-EN team",
+  "size": {
+    "x": 12,
+    "y": 12
+  },
+  "states": [
+    { "name": "Novice_1" },
+    { "name": "Novice_2" },
+    { "name": "Novice_3" },
+    { "name": "Novice_4" },
+    { "name": "Trainee_1" },
+    { "name": "Trainee_2" },
+    { "name": "Trainee_3" },
+    { "name": "Trainee_4" },
+    { "name": "Experienced_1" },
+    { "name": "Experienced_2" },
+    { "name": "Experienced_3" },
+    { "name": "Experienced_4" },
+    { "name": "Professional_1" },
+    { "name": "Professional_2" },
+    { "name": "Professional_3" },
+    { "name": "Professional_4" },
+    { "name": "Veteran_1" },
+    { "name": "Veteran_2" },
+    { "name": "Veteran_3" },
+    { "name": "Veteran_4" },
+    { "name": "Expert_1" },
+    { "name": "Expert_2" },
+    { "name": "Expert_3" },
+    { "name": "Expert_4" },
+    { "name": "Master_1" },
+    { "name": "Master_2" },
+    { "name": "Master_3" },
+    { "name": "Master_4" },
+    { "name": "Legend_1" },
+    { "name": "Legend_2" },
+    { "name": "Legend_3" },
+    { "name": "Legend_4" }
+  ]
+}

@@ -1,0 +1,131 @@
+- type: stCharacterRank
+  id: Default
+  ranks:
+  - index: 0
+    timeRequired: 0
+    iconId: STRankNovice1
+    name: st-rank-novice-1
+  - index: 1
+    timeRequired: 5h
+    iconId: STRankNovice2
+    name: st-rank-novice-2
+  - index: 2
+    timeRequired: 10h
+    iconId: STRankNovice3
+    name: st-rank-novice-3
+  - index: 3
+    timeRequired: 15h
+    iconId: STRankNovice4
+    name: st-rank-novice-4
+  - index: 4
+    timeRequired: 20h
+    iconId: STRankTrainee1
+    name: st-rank-trainee-1
+  - index: 5
+    timeRequired: 30h
+    iconId: STRankTrainee2
+    name: st-rank-trainee-2
+  - index: 6
+    timeRequired: 40h
+    iconId: STRankTrainee3
+    name: st-rank-trainee-3
+  - index: 7
+    timeRequired: 50h
+    iconId: STRankTrainee4
+    name: st-rank-trainee-4
+  - index: 8
+    timeRequired: 65h
+    iconId: STRankExperienced1
+    name: st-rank-experienced-1
+  - index: 9
+    timeRequired: 80h
+    iconId: STRankExperienced2
+    name: st-rank-experienced-2
+  - index: 10
+    timeRequired: 100h
+    iconId: STRankExperienced3
+    name: st-rank-experienced-3
+  - index: 11
+    timeRequired: 120h
+    iconId: STRankExperienced4
+    name: st-rank-experienced-4
+  - index: 12
+    timeRequired: 150h
+    iconId: STRankProfessional1
+    name: st-rank-professional-1
+  - index: 13
+    timeRequired: 180h
+    iconId: STRankProfessional2
+    name: st-rank-professional-2
+  - index: 14
+    timeRequired: 220h
+    iconId: STRankProfessional3
+    name: st-rank-professional-3
+  - index: 15
+    timeRequired: 260h
+    iconId: STRankProfessional4
+    name: st-rank-professional-4
+  - index: 16
+    timeRequired: 310h
+    iconId: STRankVeteran1
+    name: st-rank-veteran-1
+  - index: 17
+    timeRequired: 370h
+    iconId: STRankVeteran2
+    name: st-rank-veteran-2
+  - index: 18
+    timeRequired: 440h
+    iconId: STRankVeteran3
+    name: st-rank-veteran-3
+  - index: 19
+    timeRequired: 520h
+    iconId: STRankVeteran4
+    name: st-rank-veteran-4
+  - index: 20
+    timeRequired: 610h
+    iconId: STRankExpert1
+    name: st-rank-expert-1
+  - index: 21
+    timeRequired: 710h
+    iconId: STRankExpert2
+    name: st-rank-expert-2
+  - index: 22
+    timeRequired: 820h
+    iconId: STRankExpert3
+    name: st-rank-expert-3
+  - index: 23
+    timeRequired: 940h
+    iconId: STRankExpert4
+    name: st-rank-expert-4
+  - index: 24
+    timeRequired: 1080h
+    iconId: STRankMaster1
+    name: st-rank-master-1
+  - index: 25
+    timeRequired: 1240h
+    iconId: STRankMaster2
+    name: st-rank-master-2
+  - index: 26
+    timeRequired: 1420h
+    iconId: STRankMaster3
+    name: st-rank-master-3
+  - index: 27
+    timeRequired: 1620h
+    iconId: STRankMaster4
+    name: st-rank-master-4
+  - index: 28
+    timeRequired: 1850h
+    iconId: STRankLegend1
+    name: st-rank-legend-1
+  - index: 29
+    timeRequired: 2100h
+    iconId: STRankLegend2
+    name: st-rank-legend-2
+  - index: 30
+    timeRequired: 2400h
+    iconId: STRankLegend3
+    name: st-rank-legend-3
+  - index: 31
+    timeRequired: 2750h
+    iconId: STRankLegend4
+    name: st-rank-legend-4
