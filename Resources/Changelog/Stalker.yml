@@ -1159,5 +1159,12 @@
   id: 126
   time: '2026-03-05T17:41:06.629844+00:00'
   url: https://github.com/coolmankid12345/stalker-14-EN/pull/585
+- author: TheOverwatchVoice
+  changes:
+  - message: Updates RF and DV
+    type: Add
+  id: 127
+  time: '2026-03-06T11:49:43.779282+00:00'
+  url: https://github.com/coolmankid12345/stalker-14-EN/pull/587
 Name: Stalker
 Order: -1
