@@ -6,7 +6,7 @@ game-ticker-get-info-text-stalker = Hi and welcome to [color=white]Stalker14![/c
                             >[color=yellow]{$desc}[/color]
 
 game-ticker-get-info-preround-text = Hi and welcome to [color=white]Stalker14![/color]
-                            The it's currently week [color=white]#{$roundId}[/color]
+                            It's currently week [color=white]#{$roundId}[/color]
                             The current player count is: [color=white]{$playerCount}[/color] ([color=white]{$readyCount}[/color] {$readyCount ->
                                 [one] is
                                 *[other] are
