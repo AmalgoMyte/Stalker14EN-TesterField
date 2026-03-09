@@ -78,9 +78,6 @@ public sealed class STNewsArticleSummary
     /// <summary>Number of comments on this article.</summary>
     public readonly int CommentCount;
 
-    /// <summary>Whether this article has enough reactions to be considered trending.</summary>
-    public readonly bool IsTrending;
-
     public STNewsArticleSummary(
         int id,
         string title,
@@ -89,8 +86,7 @@ public sealed class STNewsArticleSummary
         int roundId,
         TimeSpan publishTime,
         int embedColor,
-        int commentCount = 0,
-        bool isTrending = false)
+        int commentCount = 0)
     {
         Id = id;
         Title = title;
@@ -100,7 +96,6 @@ public sealed class STNewsArticleSummary
         PublishTime = publishTime;
         EmbedColor = embedColor;
         CommentCount = commentCount;
-        IsTrending = isTrending;
     }
 }
 
@@ -109,8 +104,15 @@ public sealed class STNewsArticleSummary
 /// </summary>
 public static class STNewsConstants
 {
+    /// <summary>Maximum character length for article titles.</summary>
     public const int MaxTitleLength = 50;
+
+    /// <summary>Maximum character length for article body content.</summary>
     public const int MaxContentLength = 65000;
+
+    /// <summary>Character length of the plain-text preview shown in article list cards.</summary>
     public const int PreviewLength = 150;
+
+    /// <summary>Maximum character length for comments.</summary>
     public const int MaxCommentLength = 500;
 }

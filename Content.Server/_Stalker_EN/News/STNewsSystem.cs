@@ -768,12 +768,10 @@ public sealed partial class STNewsSystem : EntitySystem
         if (_cachedSummaries != null)
             return _cachedSummaries;
 
-        var trendingThreshold = _config.GetCVar(STCCVars.NewsTrendingThreshold);
         var summaries = new List<STNewsArticleSummary>(_articles.Count);
         foreach (var article in _articles)
         {
             var commentCount = _comments.TryGetValue(article.Id, out var comments) ? comments.Count : 0;
-            var isTrending = GetTotalReactionCount(article.Id) >= trendingThreshold;
             summaries.Add(new STNewsArticleSummary(
                 article.Id,
                 article.Title,
@@ -782,8 +780,7 @@ public sealed partial class STNewsSystem : EntitySystem
                 article.RoundId,
                 article.PublishTime,
                 article.EmbedColor,
-                commentCount,
-                isTrending));
+                commentCount));
         }
 
         _cachedSummaries = summaries;

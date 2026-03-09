@@ -74,22 +74,21 @@ st-news-color-psy-purple = Psy Purple
 st-news-color-ash = Ash
 
 # Reactions
-st-news-trending = TRENDING
 st-news-reaction-add = +
-st-news-reaction-Loners = Loners
-st-news-reaction-Freedom = Freedom
-st-news-reaction-Bandits = Bandits
-st-news-reaction-Duty = Duty
-st-news-reaction-Ecologist = Ecologist
-st-news-reaction-Neutrals = Neutrals
-st-news-reaction-Mercenaries = Mercenaries
-st-news-reaction-Military = Military
-st-news-reaction-Monolith = Monolith
-st-news-reaction-ClearSky = Clear Sky
-st-news-reaction-Renegades = Renegades
-st-news-reaction-Rookies = Rookies
-st-news-reaction-Journalists = Journalists
-st-news-reaction-UN = UN
+st-news-reaction-loners = Loners
+st-news-reaction-freedom = Freedom
+st-news-reaction-bandits = Bandits
+st-news-reaction-duty = Duty
+st-news-reaction-ecologist = Ecologist
+st-news-reaction-neutrals = Neutrals
+st-news-reaction-mercenaries = Mercenaries
+st-news-reaction-military = Military
+st-news-reaction-monolith = Monolith
+st-news-reaction-clear-sky = Clear Sky
+st-news-reaction-renegades = Renegades
+st-news-reaction-rookies = Rookies
+st-news-reaction-journalists = Journalists
+st-news-reaction-un = UN
 
 # Discord
 st-news-discord-footer = by {$author} | Week #{$round} | {$time}

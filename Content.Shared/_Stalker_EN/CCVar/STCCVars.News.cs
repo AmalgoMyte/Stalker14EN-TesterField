@@ -42,12 +42,6 @@ public sealed partial class STCCVars
         CVarDef.Create("stalkeren.news.reaction_cooldown_ms", 500, CVar.SERVERONLY);
 
     /// <summary>
-    ///     Minimum total reactions on an article for it to be considered trending. Default 3.
-    /// </summary>
-    public static readonly CVarDef<int> NewsTrendingThreshold =
-        CVarDef.Create("stalkeren.news.trending_threshold", 3, CVar.SERVERONLY);
-
-    /// <summary>
     ///     Maximum number of distinct reaction types allowed per article. Default 10.
     /// </summary>
     public static readonly CVarDef<int> NewsMaxDistinctReactions =

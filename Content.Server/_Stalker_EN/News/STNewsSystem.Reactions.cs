@@ -20,6 +20,10 @@ public sealed partial class STNewsSystem
 
     private bool _reactionBroadcastPending;
     private TimeSpan _nextReactionBroadcast;
+    /// <summary>
+    /// Debounce interval for reaction broadcasts. Prevents rapid-fire UI updates
+    /// when multiple players toggle reactions in quick succession.
+    /// </summary>
     private static readonly TimeSpan ReactionBroadcastInterval = TimeSpan.FromSeconds(1.5);
 
     /// <summary>
@@ -232,22 +236,6 @@ public sealed partial class STNewsSystem
         }
 
         return result;
-    }
-
-    /// <summary>
-    /// Gets the total reaction count for an article (for trending computation).
-    /// </summary>
-    private int GetTotalReactionCount(int articleId)
-    {
-        var key = (STReactionTargetType.Article, articleId);
-        if (!_reactionCounts.TryGetValue(key, out var counts))
-            return 0;
-
-        var total = 0;
-        foreach (var c in counts.Values)
-            total += c;
-
-        return total;
     }
 
     /// <summary>
