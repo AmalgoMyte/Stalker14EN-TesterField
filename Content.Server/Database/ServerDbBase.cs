@@ -2335,6 +2335,39 @@ INSERT INTO player_round (players_id, rounds_id) VALUES ({players[player]}, {id}
             await db.DbContext.SaveChangesAsync();
             return article.Id;
         }
+
+        public async Task DeleteStalkerNewsArticleAsync(int articleId)
+        {
+            await using var db = await GetDb();
+            var comments = await db.DbContext.StalkerNewsComments
+                .Where(c => c.ArticleId == articleId)
+                .ToListAsync();
+            db.DbContext.StalkerNewsComments.RemoveRange(comments);
+
+            var article = await db.DbContext.StalkerNewsArticles
+                .FirstOrDefaultAsync(a => a.Id == articleId);
+            if (article != null)
+                db.DbContext.StalkerNewsArticles.Remove(article);
+
+            await db.DbContext.SaveChangesAsync();
+        }
+
+        public async Task<List<StalkerNewsComment>> GetStalkerNewsCommentsAsync(List<int> articleIds)
+        {
+            await using var db = await GetDb();
+            return await db.DbContext.StalkerNewsComments
+                .Where(c => articleIds.Contains(c.ArticleId))
+                .OrderBy(c => c.Id)
+                .ToListAsync();
+        }
+
+        public async Task<int> AddStalkerNewsCommentAsync(StalkerNewsComment comment)
+        {
+            await using var db = await GetDb();
+            db.DbContext.StalkerNewsComments.Add(comment);
+            await db.DbContext.SaveChangesAsync();
+            return comment.Id;
+        }
         // stalker-en-changes-end
 
         #endregion

@@ -1499,6 +1499,51 @@ namespace Content.Server.Database.Migrations.Sqlite
                     b.ToTable("stalker_news_articles", (string)null);
                 });
 
+            modelBuilder.Entity("Content.Server.Database.StalkerNewsComment", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("INTEGER")
+                        .HasColumnName("stalker_news_comments_id");
+
+                    b.Property<int>("ArticleId")
+                        .HasColumnType("INTEGER")
+                        .HasColumnName("article_id");
+
+                    b.Property<string>("Author")
+                        .IsRequired()
+                        .HasColumnType("TEXT")
+                        .HasColumnName("author");
+
+                    b.Property<string>("AuthorFaction")
+                        .HasColumnType("TEXT")
+                        .HasColumnName("author_faction");
+
+                    b.Property<string>("Content")
+                        .IsRequired()
+                        .HasColumnType("TEXT")
+                        .HasColumnName("content");
+
+                    b.Property<DateTime>("CreatedAt")
+                        .HasColumnType("TEXT")
+                        .HasColumnName("created_at");
+
+                    b.Property<long>("PostedTimeTicks")
+                        .HasColumnType("INTEGER")
+                        .HasColumnName("posted_time_ticks");
+
+                    b.Property<int>("RoundId")
+                        .HasColumnType("INTEGER")
+                        .HasColumnName("round_id");
+
+                    b.HasKey("Id")
+                        .HasName("PK_stalker_news_comments");
+
+                    b.HasIndex("ArticleId");
+
+                    b.ToTable("stalker_news_comments", (string)null);
+                });
+
             modelBuilder.Entity("Content.Server.Database.StalkerPdaPassword", b =>
                 {
                     b.Property<string>("CharacterName")

@@ -58,6 +58,7 @@ namespace Content.Server.Database
         public DbSet<StalkerMessengerContact> StalkerMessengerContacts { get; set; } = null!; // stalker-en-changes
         public DbSet<StalkerPdaPassword> StalkerPdaPasswords { get; set; } = null!; // stalker-en-changes
         public DbSet<StalkerNewsArticle> StalkerNewsArticles { get; set; } = null!; // stalker-en-changes
+        public DbSet<StalkerNewsComment> StalkerNewsComments { get; set; } = null!; // stalker-en-changes
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             modelBuilder.Entity<Preference>()
@@ -392,6 +393,11 @@ namespace Content.Server.Database
 
             modelBuilder.Entity<StalkerNewsArticle>()
                 .HasKey(a => a.Id);
+
+            modelBuilder.Entity<StalkerNewsComment>()
+                .HasKey(c => c.Id);
+            modelBuilder.Entity<StalkerNewsComment>()
+                .HasIndex(c => c.ArticleId);
             // stalker-en-changes-end
 
             // Changes for modern HWID integration
@@ -1655,6 +1661,33 @@ namespace Content.Server.Database
         public int EmbedColor { get; set; }
 
         public DateTime CreatedAt { get; set; }
+    }
+
+    /// <summary>
+    /// Stores a flat comment on a Stalker News article. Persists across rounds.
+    /// </summary>
+    public sealed class StalkerNewsComment
+    {
+        [Required, Key, DatabaseGenerated(DatabaseGeneratedOption.Identity)]
+        public int Id { get; set; }
+
+        [Required]
+        public int ArticleId { get; set; }
+
+        [Required]
+        public string Author { get; set; } = default!;
+
+        [Required]
+        public string Content { get; set; } = default!;
+
+        public int RoundId { get; set; }
+
+        /// <summary>Stored as TimeSpan.Ticks for precision.</summary>
+        public long PostedTimeTicks { get; set; }
+
+        public DateTime CreatedAt { get; set; }
+
+        public string? AuthorFaction { get; set; }
     }
     // stalker-en-changes-end
 
