@@ -1296,5 +1296,12 @@
   id: 140
   time: '2026-03-10T01:48:25.690246+00:00'
   url: https://github.com/coolmankid12345/stalker-14-EN/pull/607
+- author: teecoding
+  changes:
+  - message: Your PDA programs no longer mysteriously vanish when using the stash
+    type: Fix
+  id: 141
+  time: '2026-03-10T18:43:02.567498+00:00'
+  url: https://github.com/coolmankid12345/stalker-14-EN/pull/613
 Name: Stalker
 Order: -1
