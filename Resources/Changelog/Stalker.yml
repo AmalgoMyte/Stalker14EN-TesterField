@@ -1318,5 +1318,15 @@
   id: 143
   time: '2026-03-10T18:48:20.763067+00:00'
   url: https://github.com/coolmankid12345/stalker-14-EN/pull/612
+- author: teecoding
+  changes:
+  - message: Your stash items no longer get identity crises after a server restart.
+      Loadouts actually find the right items now
+    type: Fix
+  - message: Magazines with matching ammo types are now preferred when restoring loadouts.
+    type: Tweak
+  id: 144
+  time: '2026-03-10T20:18:20.252102+00:00'
+  url: https://github.com/coolmankid12345/stalker-14-EN/pull/615
 Name: Stalker
 Order: -1
