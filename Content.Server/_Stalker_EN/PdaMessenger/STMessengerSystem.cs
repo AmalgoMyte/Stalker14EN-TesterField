@@ -281,8 +281,11 @@ public sealed partial class STMessengerSystem : EntitySystem
         var chatId = send.TargetChatId;
         var isDm = chatId.StartsWith(STMessengerChat.DmChatPrefix, StringComparison.Ordinal);
 
+        // Effective anonymous flag: only allowed for non-DM channels that explicitly permit it
+        var isAnonymous = send.IsAnonymous && !isDm;
+
         // Determine display name: anonymous pseudonym for channels, real name for DMs
-        var displayName = (send.IsAnonymous && !isDm)
+        var displayName = isAnonymous
             ? GetOrCreatePseudonym(senderKey)
             : senderName;
 
@@ -325,8 +328,23 @@ public sealed partial class STMessengerSystem : EntitySystem
             if (!_protoManager.TryIndex(chatId, out channelProto))
                 return;
 
+            // Re-resolve the holder's band before access check (band may have changed)
+            if (TryComp<TransformComponent>(loaderUid, out var pdaXform))
+            {
+                var holder = pdaXform.ParentUid;
+                if (holder.IsValid())
+                    server.OwnerBand = ResolveMobBand(holder);
+            }
+
             if (!HasChannelAccess(channelProto, server))
                 return;
+
+            // Enforce per-channel anonymous setting
+            if (isAnonymous && !channelProto.AllowAnonymous)
+            {
+                isAnonymous = false;
+                displayName = senderName;
+            }
 
             storageKey = chatId;
             chatMessages = _channelChats.GetOrNew(storageKey);
@@ -337,10 +355,10 @@ public sealed partial class STMessengerSystem : EntitySystem
         var msgId = ++_nextMessageId[storageKey];
 
         // Resolve faction and rank for non-anonymous messages; null hides them on anonymous messages
-        string? senderFaction = !send.IsAnonymous
+        string? senderFaction = !isAnonymous
             ? ResolveContactFaction(senderKey)
             : null;
-        string? senderRankIcon = !send.IsAnonymous
+        string? senderRankIcon = !isAnonymous
             ? ResolveContactRankIcon(senderKey)
             : null;
 
@@ -367,7 +385,7 @@ public sealed partial class STMessengerSystem : EntitySystem
             ? $" (reply to #{rid}: \"{replySnippet}\")"
             : "";
 
-        if (send.IsAnonymous && !isDm)
+        if (isAnonymous)
         {
             _adminLogger.Add(LogType.STMessenger, LogImpact.Medium,
                 $"{ToPrettyString(args.Actor):player} sent anonymous message " +
@@ -468,6 +486,14 @@ public sealed partial class STMessengerSystem : EntitySystem
         {
             if (!TryComp<STMessengerServerComponent>(cartridgeUid, out var server))
                 continue;
+
+            // Re-resolve the holder's band before access check (band may have changed)
+            if (TryComp<TransformComponent>(pdaUid, out var pdaXform))
+            {
+                var holder = pdaXform.ParentUid;
+                if (holder.IsValid())
+                    server.OwnerBand = ResolveMobBand(holder);
+            }
 
             if (!HasChannelAccess(channelProto, server))
                 continue;
