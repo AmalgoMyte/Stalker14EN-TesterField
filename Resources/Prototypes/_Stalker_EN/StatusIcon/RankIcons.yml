@@ -2,13 +2,11 @@
 - type: jobIcon
   abstract: true
   id: STRankBase
-  locationPreference: Right
+  locationPreference: Left
   isShaded: true
   hideOnStealth: true
   priority: 11
   allowSelection: false
-  layer: Mod
-  xOffset: 12
 
 - type: jobIcon
   parent: STRankBase

@@ -42,8 +42,6 @@ public sealed class StatusIconOverlay : Overlay
         var handle = args.WorldHandle;
 
         var eyeRot = args.Viewport.Eye?.Rotation ?? default;
-        var eyePos = args.Viewport.Eye?.Position.Position ?? Vector2.Zero;
-        var eyeZoom = args.Viewport.Eye?.Zoom ?? Vector2.One;
 
         var xformQuery = _entity.GetEntityQuery<TransformComponent>();
         var scaleMatrix = Matrix3Helpers.CreateScale(new Vector2(1, 1));
@@ -57,11 +55,7 @@ public sealed class StatusIconOverlay : Overlay
 
             var bounds = comp.Bounds ?? _sprite.GetLocalBounds((uid, sprite));
 
-            var rawWorldPos = _transform.GetWorldPosition(xform, xformQuery);
-            // Snap to screen pixel grid to prevent sub-pixel distortion on small icon textures
-            var worldPos = new Vector2(
-                MathF.Round((rawWorldPos.X - eyePos.X) * EyeManager.PixelsPerMeter * eyeZoom.X) / (EyeManager.PixelsPerMeter * eyeZoom.X) + eyePos.X,
-                MathF.Round((rawWorldPos.Y - eyePos.Y) * EyeManager.PixelsPerMeter * eyeZoom.Y) / (EyeManager.PixelsPerMeter * eyeZoom.Y) + eyePos.Y);
+            var worldPos = _transform.GetWorldPosition(xform, xformQuery);
 
             if (!bounds.Translated(worldPos).Intersects(args.WorldAABB))
                 continue;
@@ -105,7 +99,7 @@ public sealed class StatusIconOverlay : Overlay
                         countL++;
                     }
                     yOffset = (bounds.Height + sprite.Offset.Y) / 2f - (float)(accOffsetL - proto.Offset) / EyeManager.PixelsPerMeter;
-                    xOffset = -(bounds.Width + sprite.Offset.X) / 2f - (float)proto.XOffset / EyeManager.PixelsPerMeter;
+                    xOffset = -(bounds.Width + sprite.Offset.X) / 2f;
 
                 }
                 else
@@ -118,7 +112,7 @@ public sealed class StatusIconOverlay : Overlay
                         countR++;
                     }
                     yOffset = (bounds.Height + sprite.Offset.Y) / 2f - (float)(accOffsetR - proto.Offset) / EyeManager.PixelsPerMeter;
-                    xOffset = (bounds.Width + sprite.Offset.X) / 2f - (float)(texture.Width - proto.XOffset) / EyeManager.PixelsPerMeter;
+                    xOffset = (bounds.Width + sprite.Offset.X) / 2f - (float)texture.Width / EyeManager.PixelsPerMeter;
 
                 }
 
