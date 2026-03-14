@@ -123,6 +123,7 @@ public sealed class STCameraSystem : EntitySystem
         {
             Token = token,
             Camera = GetNetEntity(uid),
+            Effect = comp.Effect,
         }, session);
 
         // Play shutter sound and set cooldown
