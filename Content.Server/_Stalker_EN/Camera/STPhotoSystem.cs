@@ -1,3 +1,4 @@
+using Content.Server.Database;
 using Content.Shared._Stalker_EN.Camera;
 using Content.Shared.UserInterface;
 using Robust.Server.GameObjects;
@@ -9,10 +10,13 @@ namespace Content.Server._Stalker_EN.Camera;
 
 /// <summary>
 /// Serves photo image data on demand to clients and manages photo BUI state.
+/// Handles both entity-backed photo requests and shared (entity-less) photo requests
+/// for photos embedded in news articles.
 /// </summary>
 public sealed class STPhotoSystem : EntitySystem
 {
     [Dependency] private readonly IGameTiming _timing = default!;
+    [Dependency] private readonly IServerDbManager _dbManager = default!;
     [Dependency] private readonly UserInterfaceSystem _ui = default!;
 
     /// <summary>
@@ -21,6 +25,7 @@ public sealed class STPhotoSystem : EntitySystem
     private readonly Dictionary<NetUserId, TimeSpan> _lastPhotoRequest = new();
 
     private static readonly TimeSpan RequestCooldown = TimeSpan.FromSeconds(1);
+    private static readonly TimeSpan SharedRequestCooldown = TimeSpan.FromMilliseconds(250);
 
     public override void Initialize()
     {
@@ -28,6 +33,7 @@ public sealed class STPhotoSystem : EntitySystem
 
         SubscribeLocalEvent<STPhotoComponent, BeforeActivatableUIOpenEvent>(OnBeforeUI);
         SubscribeNetworkEvent<STPhotoRequestEvent>(OnPhotoRequest);
+        SubscribeNetworkEvent<STSharedPhotoRequestEvent>(OnSharedPhotoRequest);
         SubscribeLocalEvent<PlayerDetachedEvent>(OnPlayerDetached);
     }
 
@@ -64,6 +70,46 @@ public sealed class STPhotoSystem : EntitySystem
             PhotoId = photo.PhotoId,
             ImageData = photo.ImageData,
         }, args.SenderSession);
+    }
+
+    /// <summary>
+    /// Handles shared photo requests (no entity required).
+    /// Looks up photo bytes from the news DB.
+    /// </summary>
+    private void OnSharedPhotoRequest(STSharedPhotoRequestEvent ev, EntitySessionEventArgs args)
+    {
+        var userId = args.SenderSession.UserId;
+        var now = _timing.CurTime;
+
+        if (_lastPhotoRequest.TryGetValue(userId, out var lastRequest) && now - lastRequest < SharedRequestCooldown)
+            return;
+
+        _lastPhotoRequest[userId] = now;
+
+        if (ev.PhotoId == Guid.Empty)
+            return;
+
+        LookupNewsPhotoAsync(ev.PhotoId, args.SenderSession);
+    }
+
+    private async void LookupNewsPhotoAsync(Guid photoId, ICommonSession session)
+    {
+        try
+        {
+            var dbPhoto = await _dbManager.GetStalkerNewsArticlePhotoAsync(photoId);
+            if (dbPhoto == null)
+                return;
+
+            RaiseNetworkEvent(new STPhotoResponseEvent
+            {
+                PhotoId = photoId,
+                ImageData = dbPhoto.PhotoData,
+            }, session);
+        }
+        catch (Exception e)
+        {
+            Log.Error($"Failed to load news photo {photoId}: {e.Message}");
+        }
     }
 
     private void OnPlayerDetached(PlayerDetachedEvent args)

@@ -49,3 +49,13 @@ public sealed class STPhotoResponseEvent : EntityEventArgs
     public Guid PhotoId;
     public byte[] ImageData = Array.Empty<byte>();
 }
+
+/// <summary>
+/// Client to Server: request shared photo data by ID (no entity required).
+/// Used for photos embedded in news articles.
+/// </summary>
+[Serializable, NetSerializable]
+public sealed class STSharedPhotoRequestEvent : EntityEventArgs
+{
+    public Guid PhotoId;
+}

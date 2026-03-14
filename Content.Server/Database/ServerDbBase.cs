@@ -2347,7 +2347,18 @@ INSERT INTO player_round (players_id, rounds_id) VALUES ({players[player]}, {id}
             var article = await db.DbContext.StalkerNewsArticles
                 .FirstOrDefaultAsync(a => a.Id == articleId);
             if (article != null)
+            {
+                // Cascade delete attached photo
+                if (article.PhotoId is { } photoId)
+                {
+                    var photo = await db.DbContext.StalkerNewsArticlePhotos
+                        .FirstOrDefaultAsync(p => p.PhotoId == photoId);
+                    if (photo != null)
+                        db.DbContext.StalkerNewsArticlePhotos.Remove(photo);
+                }
+
                 db.DbContext.StalkerNewsArticles.Remove(article);
+            }
 
             await db.DbContext.SaveChangesAsync();
         }
@@ -2367,6 +2378,33 @@ INSERT INTO player_round (players_id, rounds_id) VALUES ({players[player]}, {id}
             db.DbContext.StalkerNewsComments.Add(comment);
             await db.DbContext.SaveChangesAsync();
             return comment.Id;
+        }
+
+        // stalker-en-changes: News article photos
+        public async Task AddStalkerNewsArticlePhotoAsync(StalkerNewsArticlePhoto photo)
+        {
+            await using var db = await GetDb();
+            db.DbContext.StalkerNewsArticlePhotos.Add(photo);
+            await db.DbContext.SaveChangesAsync();
+        }
+
+        public async Task<StalkerNewsArticlePhoto?> GetStalkerNewsArticlePhotoAsync(Guid photoId)
+        {
+            await using var db = await GetDb();
+            return await db.DbContext.StalkerNewsArticlePhotos
+                .FirstOrDefaultAsync(p => p.PhotoId == photoId);
+        }
+
+        public async Task DeleteStalkerNewsArticlePhotoAsync(Guid photoId)
+        {
+            await using var db = await GetDb();
+            var photo = await db.DbContext.StalkerNewsArticlePhotos
+                .FirstOrDefaultAsync(p => p.PhotoId == photoId);
+            if (photo != null)
+            {
+                db.DbContext.StalkerNewsArticlePhotos.Remove(photo);
+                await db.DbContext.SaveChangesAsync();
+            }
         }
 
         // stalker-en-changes: News reactions

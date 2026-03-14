@@ -433,6 +433,11 @@ namespace Content.Server.Database
         Task<List<StalkerNewsComment>> GetStalkerNewsCommentsAsync(List<int> articleIds);
         Task<int> AddStalkerNewsCommentAsync(StalkerNewsComment comment);
 
+        // stalker-en-changes: News article photos
+        Task AddStalkerNewsArticlePhotoAsync(StalkerNewsArticlePhoto photo);
+        Task<StalkerNewsArticlePhoto?> GetStalkerNewsArticlePhotoAsync(Guid photoId);
+        Task DeleteStalkerNewsArticlePhotoAsync(Guid photoId);
+
         // stalker-en-changes: News reactions
         Task<List<StalkerNewsReaction>> GetStalkerNewsReactionsAsync(int targetType, List<int> targetIds);
         Task<bool> ToggleStalkerNewsReactionAsync(int targetType, int targetId, Guid userId, string reactionId);
@@ -1324,6 +1329,25 @@ namespace Content.Server.Database
         {
             DbWriteOpsMetric.Inc();
             return RunDbCommand(() => _db.AddStalkerNewsCommentAsync(comment));
+        }
+
+        // stalker-en-changes: News article photos
+        public Task AddStalkerNewsArticlePhotoAsync(StalkerNewsArticlePhoto photo)
+        {
+            DbWriteOpsMetric.Inc();
+            return RunDbCommand(() => _db.AddStalkerNewsArticlePhotoAsync(photo));
+        }
+
+        public Task<StalkerNewsArticlePhoto?> GetStalkerNewsArticlePhotoAsync(Guid photoId)
+        {
+            DbReadOpsMetric.Inc();
+            return RunDbCommand(() => _db.GetStalkerNewsArticlePhotoAsync(photoId));
+        }
+
+        public Task DeleteStalkerNewsArticlePhotoAsync(Guid photoId)
+        {
+            DbWriteOpsMetric.Inc();
+            return RunDbCommand(() => _db.DeleteStalkerNewsArticlePhotoAsync(photoId));
         }
 
         // stalker-en-changes: News reactions

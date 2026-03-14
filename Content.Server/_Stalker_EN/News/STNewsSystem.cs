@@ -7,6 +7,8 @@ using Content.Server.GameTicking;
 using Content.Server.PDA.Ringer;
 using Content.Shared.Access;
 using Content.Shared.Access.Systems;
+using Content.Shared.Hands.EntitySystems;
+using Content.Shared._Stalker_EN.Camera;
 using Content.Shared.CartridgeLoader;
 using Content.Shared.Database;
 using Content.Shared.GameTicking;
@@ -38,6 +40,7 @@ public sealed partial class STNewsSystem : EntitySystem
     [Dependency] private readonly IServerDbManager _dbManager = default!;
     [Dependency] private readonly IPrototypeManager _protoManager = default!;
     [Dependency] private readonly RingerSystem _ringer = default!;
+    [Dependency] private readonly SharedHandsSystem _handsSystem = default!;
     [Dependency] private readonly SharedSTFactionResolutionSystem _factionResolution = default!;
     [Dependency] private readonly IGameTiming _timing = default!;
 
@@ -129,7 +132,8 @@ public sealed partial class STNewsSystem : EntitySystem
                     dbArticle.Author,
                     dbArticle.RoundId,
                     TimeSpan.FromTicks(dbArticle.PublishTimeTicks),
-                    dbArticle.EmbedColor));
+                    dbArticle.EmbedColor,
+                    dbArticle.PhotoId));
             }
 
             // Load comments for all cached articles
@@ -348,7 +352,22 @@ public sealed partial class STNewsSystem : EntitySystem
             LogImpact.Low,
             $"{ToPrettyString(args.Actor):player} published news article: \"{title}\"");
 
-        PublishArticleAsync(title, content, author, publish.EmbedColor);
+        Guid? photoId = null;
+        byte[]? photoData = null;
+        if (publish.PhotoEntity is { } photoNetEntity)
+        {
+            var photoUid = GetEntity(photoNetEntity);
+            if (TryComp<STPhotoComponent>(photoUid, out var photoComp)
+                && photoComp.ImageData.Length > 0
+                && _handsSystem.TryGetActiveItem(args.Actor, out var activeItem)
+                && activeItem == photoUid)
+            {
+                photoId = Guid.NewGuid();
+                photoData = photoComp.ImageData;
+            }
+        }
+
+        PublishArticleAsync(title, content, author, publish.EmbedColor, photoId, photoData);
     }
 
     private void OnRequestArticle(
@@ -569,7 +588,9 @@ public sealed partial class STNewsSystem : EntitySystem
         string title,
         string content,
         string author,
-        int embedColor)
+        int embedColor,
+        Guid? photoId = null,
+        byte[]? photoData = null)
     {
         try
         {
@@ -581,10 +602,21 @@ public sealed partial class STNewsSystem : EntitySystem
                 RoundId = _gameTicker.RoundId,
                 PublishTimeTicks = _gameTicker.RoundDuration().Ticks,
                 EmbedColor = embedColor,
+                PhotoId = photoId,
                 CreatedAt = DateTime.UtcNow,
             };
 
             var dbId = await _dbManager.AddStalkerNewsArticleAsync(dbArticle);
+
+            if (photoId is { } pid && photoData != null)
+            {
+                await _dbManager.AddStalkerNewsArticlePhotoAsync(new StalkerNewsArticlePhoto
+                {
+                    PhotoId = pid,
+                    PhotoData = photoData,
+                    CreatedAt = DateTime.UtcNow,
+                });
+            }
 
             var article = new STNewsArticle(
                 dbId,
@@ -593,7 +625,8 @@ public sealed partial class STNewsSystem : EntitySystem
                 author,
                 dbArticle.RoundId,
                 TimeSpan.FromTicks(dbArticle.PublishTimeTicks),
-                embedColor);
+                embedColor,
+                photoId);
 
             var maxCached = _config.GetCVar(STCCVars.NewsMaxCachedArticles);
             _articles.Insert(0, article);
@@ -780,7 +813,8 @@ public sealed partial class STNewsSystem : EntitySystem
                 article.RoundId,
                 article.PublishTime,
                 article.EmbedColor,
-                commentCount));
+                commentCount,
+                article.PhotoId.HasValue));
         }
 
         _cachedSummaries = summaries;

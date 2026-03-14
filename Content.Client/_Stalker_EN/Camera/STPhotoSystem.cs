@@ -78,6 +78,27 @@ public sealed class STPhotoSystem : EntitySystem
         });
     }
 
+    /// <summary>
+    /// Request shared photo data by ID only (no entity required).
+    /// Used for photos embedded in news articles.
+    /// </summary>
+    public void RequestSharedPhoto(Guid photoId)
+    {
+        if (photoId == Guid.Empty)
+            return;
+
+        if (_photoCache.ContainsKey(photoId))
+            return;
+
+        if (!_pendingRequests.Add(photoId))
+            return;
+
+        RaiseNetworkEvent(new STSharedPhotoRequestEvent
+        {
+            PhotoId = photoId,
+        });
+    }
+
     private void OnPhotoResponse(STPhotoResponseEvent ev)
     {
         _pendingRequests.Remove(ev.PhotoId);
