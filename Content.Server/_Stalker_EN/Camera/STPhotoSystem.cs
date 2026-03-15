@@ -4,6 +4,7 @@ using Content.Shared.UserInterface;
 using Robust.Server.GameObjects;
 using Robust.Shared.Network;
 using Robust.Shared.Player;
+using Content.Shared.GameTicking;
 using Robust.Shared.Timing;
 
 namespace Content.Server._Stalker_EN.Camera;
@@ -20,9 +21,14 @@ public sealed class STPhotoSystem : EntitySystem
     [Dependency] private readonly UserInterfaceSystem _ui = default!;
 
     /// <summary>
-    /// Rate limiting: last request time per player.
+    /// Rate limiting: last entity photo request time per player.
     /// </summary>
-    private readonly Dictionary<NetUserId, TimeSpan> _lastPhotoRequest = new();
+    private readonly Dictionary<NetUserId, TimeSpan> _lastEntityPhotoRequest = new();
+
+    /// <summary>
+    /// Rate limiting: last shared photo request time per player.
+    /// </summary>
+    private readonly Dictionary<NetUserId, TimeSpan> _lastSharedPhotoRequest = new();
 
     private static readonly TimeSpan RequestCooldown = TimeSpan.FromSeconds(1);
     private static readonly TimeSpan SharedRequestCooldown = TimeSpan.FromMilliseconds(250);
@@ -35,6 +41,7 @@ public sealed class STPhotoSystem : EntitySystem
         SubscribeNetworkEvent<STPhotoRequestEvent>(OnPhotoRequest);
         SubscribeNetworkEvent<STSharedPhotoRequestEvent>(OnSharedPhotoRequest);
         SubscribeLocalEvent<PlayerDetachedEvent>(OnPlayerDetached);
+        SubscribeLocalEvent<RoundRestartCleanupEvent>(OnRoundRestart);
     }
 
     private void OnBeforeUI(EntityUid uid, STPhotoComponent comp, BeforeActivatableUIOpenEvent args)
@@ -49,10 +56,10 @@ public sealed class STPhotoSystem : EntitySystem
         var now = _timing.CurTime;
 
         // Rate limit: 1 request per second per session
-        if (_lastPhotoRequest.TryGetValue(userId, out var lastRequest) && now - lastRequest < RequestCooldown)
+        if (_lastEntityPhotoRequest.TryGetValue(userId, out var lastRequest) && now - lastRequest < RequestCooldown)
             return;
 
-        _lastPhotoRequest[userId] = now;
+        _lastEntityPhotoRequest[userId] = now;
 
         var photoUid = GetEntity(ev.PhotoEntity);
 
@@ -81,10 +88,10 @@ public sealed class STPhotoSystem : EntitySystem
         var userId = args.SenderSession.UserId;
         var now = _timing.CurTime;
 
-        if (_lastPhotoRequest.TryGetValue(userId, out var lastRequest) && now - lastRequest < SharedRequestCooldown)
+        if (_lastSharedPhotoRequest.TryGetValue(userId, out var lastRequest) && now - lastRequest < SharedRequestCooldown)
             return;
 
-        _lastPhotoRequest[userId] = now;
+        _lastSharedPhotoRequest[userId] = now;
 
         if (ev.PhotoId == Guid.Empty)
             return;
@@ -112,8 +119,15 @@ public sealed class STPhotoSystem : EntitySystem
         }
     }
 
+    private void OnRoundRestart(RoundRestartCleanupEvent ev)
+    {
+        _lastEntityPhotoRequest.Clear();
+        _lastSharedPhotoRequest.Clear();
+    }
+
     private void OnPlayerDetached(PlayerDetachedEvent args)
     {
-        _lastPhotoRequest.Remove(args.Player.UserId);
+        _lastEntityPhotoRequest.Remove(args.Player.UserId);
+        _lastSharedPhotoRequest.Remove(args.Player.UserId);
     }
 }
