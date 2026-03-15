@@ -1,4 +1,5 @@
 using Content.Server.Database;
+using Content.Server._Stalker_EN.News;
 using Content.Shared._Stalker_EN.Camera;
 using Content.Shared.UserInterface;
 using Robust.Server.GameObjects;
@@ -19,6 +20,7 @@ public sealed class STPhotoSystem : EntitySystem
     [Dependency] private readonly IGameTiming _timing = default!;
     [Dependency] private readonly IServerDbManager _dbManager = default!;
     [Dependency] private readonly UserInterfaceSystem _ui = default!;
+    [Dependency] private readonly STNewsSystem _news = default!;
 
     /// <summary>
     /// Rate limiting: last entity photo request time per player.
@@ -94,6 +96,10 @@ public sealed class STPhotoSystem : EntitySystem
         _lastSharedPhotoRequest[userId] = now;
 
         if (ev.PhotoId == Guid.Empty)
+            return;
+
+        // Only serve photos referenced by a cached article to prevent DB enumeration (F-04)
+        if (!_news.IsPhotoInCache(ev.PhotoId))
             return;
 
         LookupNewsPhotoAsync(ev.PhotoId, args.SenderSession);

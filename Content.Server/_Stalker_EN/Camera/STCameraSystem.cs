@@ -1,16 +1,21 @@
+using System.IO;
+using Content.Server.Administration.Logs;
 using Content.Server.Popups;
 using Content.Shared._Stalker_EN.Camera;
 using Content.Shared.Charges.Systems;
 using Content.Shared.Containers.ItemSlots;
+using Content.Shared.Database;
 using Content.Shared.DoAfter;
+using Content.Shared.GameTicking;
 using Content.Shared.Hands.EntitySystems;
 using Content.Shared.Interaction.Events;
 using Robust.Server.Player;
 using Robust.Shared.Audio.Systems;
 using Robust.Shared.Network;
 using Robust.Shared.Player;
-using Content.Shared.GameTicking;
 using Robust.Shared.Timing;
+using SixLabors.ImageSharp;
+using SixLabors.ImageSharp.PixelFormats;
 
 namespace Content.Server._Stalker_EN.Camera;
 
@@ -28,6 +33,7 @@ public sealed class STCameraSystem : SharedSTCameraSystem
     [Dependency] private readonly ItemSlotsSystem _itemSlots = default!;
     [Dependency] private readonly SharedChargesSystem _charges = default!;
     [Dependency] private readonly PopupSystem _popup = default!;
+    [Dependency] private readonly IAdminLogManager _adminLogger = default!;
 
     /// <summary>
     /// Tracks pending viewport capture requests per player.
@@ -36,6 +42,9 @@ public sealed class STCameraSystem : SharedSTCameraSystem
 
     private static readonly TimeSpan TokenExpiry = TimeSpan.FromSeconds(10);
     private static readonly byte[] JpegMagic = { 0xFF, 0xD8, 0xFF };
+    private static readonly byte[] JpegEoi = { 0xFF, 0xD9 };
+    private const int MaxImageWidth = 1920;
+    private const int MaxImageHeight = 1080;
 
     /// <summary>
     /// Lazy-allocated list for expired token cleanup.
@@ -163,7 +172,16 @@ public sealed class STCameraSystem : SharedSTCameraSystem
         if (ev.ImageData.Length < JpegMagic.Length
             || !ev.ImageData.AsSpan(0, JpegMagic.Length).SequenceEqual(JpegMagic))
         {
-            Log.Warning($"Player {args.SenderSession.Name} sent invalid photo data (bad JPEG header)");
+            _adminLogger.Add(LogType.STPhoto, LogImpact.Medium,
+                $"{ToPrettyString(pending.User):player} sent invalid photo data (bad JPEG header)");
+            return;
+        }
+
+        if (ev.ImageData.Length < JpegEoi.Length
+            || !ev.ImageData.AsSpan(ev.ImageData.Length - JpegEoi.Length).SequenceEqual(JpegEoi))
+        {
+            _adminLogger.Add(LogType.STPhoto, LogImpact.Medium,
+                $"{ToPrettyString(pending.User):player} sent invalid photo data (missing JPEG EOI marker)");
             return;
         }
 
@@ -174,7 +192,28 @@ public sealed class STCameraSystem : SharedSTCameraSystem
 
         if (ev.ImageData.Length > comp.MaxImageBytes)
         {
-            Log.Warning($"Player {args.SenderSession.Name} sent oversized photo: {ev.ImageData.Length} bytes");
+            _adminLogger.Add(LogType.STPhoto, LogImpact.Medium,
+                $"{ToPrettyString(pending.User):player} sent oversized photo: {ev.ImageData.Length} bytes (max {comp.MaxImageBytes})");
+            return;
+        }
+
+        // Decode the JPEG to validate it is a well-formed image and check dimensions.
+        // Prevents malformed JPEGs from propagating to viewing clients as a decompression bomb.
+        try
+        {
+            using var stream = new MemoryStream(ev.ImageData);
+            using var image = Image.Load<Rgba32>(stream);
+            if (image.Width > MaxImageWidth || image.Height > MaxImageHeight)
+            {
+                _adminLogger.Add(LogType.STPhoto, LogImpact.Medium,
+                    $"{ToPrettyString(pending.User):player} sent excessive photo dimensions: {image.Width}x{image.Height}");
+                return;
+            }
+        }
+        catch (Exception e)
+        {
+            _adminLogger.Add(LogType.STPhoto, LogImpact.Medium,
+                $"{ToPrettyString(pending.User):player} sent undecodable JPEG: {e.Message}");
             return;
         }
 
@@ -205,6 +244,9 @@ public sealed class STCameraSystem : SharedSTCameraSystem
                 Del(filmItem);
             }
         }
+
+        _adminLogger.Add(LogType.STPhoto, LogImpact.Low,
+            $"{ToPrettyString(pending.User):player} took a photo (PhotoId: {photo.PhotoId}, Camera: {ToPrettyString(cameraUid)})");
 
         // Try to give to player, fall back to dropping at feet
         _hands.PickupOrDrop(pending.User, photoUid);
