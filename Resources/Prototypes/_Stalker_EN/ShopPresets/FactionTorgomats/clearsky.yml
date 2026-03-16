@@ -156,6 +156,8 @@
       STWeaponRifleM14: 3750
       STWeaponRifleAKS74: 3500
       STWeaponRifleAKM: 3500
+      STWeaponRifleStalkerAK105SwampThing: 4000
+      STMetroWeaponRifleVSV: 5000
       # Snipers
       STWeaponSniperVepr: 4000
 
