@@ -1,0 +1,20 @@
+# Loner
+- type: soundCollection
+  id: LonerAttack
+  files:
+  - /Audio/_Stalker_EN/VoiceLines/Loners/Attack/attack_1.ogg
+  - /Audio/_Stalker_EN/VoiceLines/Loners/Attack/attack_2.ogg
+  - /Audio/_Stalker_EN/VoiceLines/Loners/Attack/attack_3.ogg
+  - /Audio/_Stalker_EN/VoiceLines/Loners/Attack/attack_4.ogg
+  - /Audio/_Stalker_EN/VoiceLines/Loners/Attack/attack_5.ogg
+  - /Audio/_Stalker_EN/VoiceLines/Loners/Attack/attack_6.ogg
+  - /Audio/_Stalker_EN/VoiceLines/Loners/Attack/attack_many_1.ogg
+  - /Audio/_Stalker_EN/VoiceLines/Loners/Attack/attack_many_2.ogg
+  - /Audio/_Stalker_EN/VoiceLines/Loners/Attack/attack_many_3.ogg
+  - /Audio/_Stalker_EN/VoiceLines/Loners/Attack/attack_many_4.ogg
+  - /Audio/_Stalker_EN/VoiceLines/Loners/Attack/attack_many_5.ogg
+  - /Audio/_Stalker_EN/VoiceLines/Loners/Attack/attack_one_1.ogg
+  - /Audio/_Stalker_EN/VoiceLines/Loners/Attack/attack_one_2.ogg
+  - /Audio/_Stalker_EN/VoiceLines/Loners/Attack/attack_one_3.ogg
+  - /Audio/_Stalker_EN/VoiceLines/Loners/Attack/attack_one_4.ogg
+  - /Audio/_Stalker_EN/VoiceLines/Loners/Attack/attack_one_5.ogg

@@ -44,3 +44,8 @@
         pullingItemTag: PliersStalker
         teethCount: 3
         initialTeeth: 3
+      - type: Vocal
+        sounds:
+          Male: MaleHumanLoner
+          Female: FemaleHuman
+          Unsexed: MaleHuman

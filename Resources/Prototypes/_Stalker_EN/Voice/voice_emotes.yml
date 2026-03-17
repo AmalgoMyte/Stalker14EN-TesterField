@@ -1,0 +1,162 @@
+# Loner
+- type: emote
+  id: STAttackLoner
+  name: chat-emote-name-st-attack
+  category: VoiceLine
+  available: true
+  icon: Interface/Emotes/whistle.png
+  whitelist:
+    components:
+    - Vocal
+  chatMessages: ["chat-emote-msg-st-attack"]
+  chatTriggers:
+    - stattack
+
+- type: emote
+  id: STBackupLoner
+  name: chat-emote-name-st-backup
+  category: VoiceLine
+  available: true
+  icon: Interface/Emotes/whistle.png
+  whitelist:
+    components:
+    - Vocal
+  chatMessages: ["chat-emote-msg-st-backup"]
+  chatTriggers:
+  - stbackup
+
+- type: emote
+  id: STCoverLoner
+  name: chat-emote-name-st-cover
+  category: VoiceLine
+  available: true
+  icon: Interface/Emotes/whistle.png
+  whitelist:
+    components:
+    - Vocal
+  chatMessages: ["chat-emote-msg-st-cover"]
+  chatTriggers:
+  - stcover
+
+- type: emote
+  id: STEnemyLoner
+  name: chat-emote-name-st-enemy
+  category: VoiceLine
+  available: true
+  icon: Interface/Emotes/whistle.png
+  whitelist:
+    components:
+    - Vocal
+  chatMessages: ["chat-emote-msg-st-enemy"]
+  chatTriggers:
+  - stenemy
+
+- type: emote
+  id: STLaughLoner
+  name: chat-emote-name-st-Laugh
+  category: VoiceLine
+  available: true
+  icon: Interface/Emotes/whistle.png
+  whitelist:
+    components:
+    - Vocal
+  chatMessages: ["chat-emote-msg-st-Laugh"]
+  chatTriggers:
+  - stlaugh
+
+- type: emote
+  id: STGrenadeLoner
+  name: chat-emote-name-st-grenade
+  category: VoiceLine
+  available: true
+  icon: Interface/Emotes/whistle.png
+  whitelist:
+    components:
+    - Vocal
+  chatMessages: ["chat-emote-msg-st-grenade"]
+  chatTriggers:
+  - stnade
+
+- type: emote
+  id: STMedkitLoner
+  name: chat-emote-name-st-medkit
+  category: VoiceLine
+  available: true
+  icon: Interface/Emotes/whistle.png
+  whitelist:
+    components:
+    - Vocal
+  chatMessages: ["chat-emote-msg-st-medkit"]
+  chatTriggers:
+  - stmedkit
+
+- type: emote
+  id: STDeathLoner
+  name: chat-emote-name-st-death
+  category: VoiceLine
+  available: true
+  icon: Interface/Emotes/whistle.png
+  whitelist:
+    components:
+    - Vocal
+  chatMessages: ["chat-emote-msg-st-death"]
+  chatTriggers:
+  - stdeath
+
+- type: emoteSounds
+  id: MaleHumanLoner
+  params:
+    variation: 0.125
+  sounds:
+    Scream:
+      collection: MaleScreams
+    Laugh:
+      collection: MaleLaugh
+    Sneeze:
+      collection: MaleSneezes
+    Cough:
+      collection: MaleCoughs
+    CatMeow:
+      collection: CatMeows
+    CatHisses:
+      collection: CatHisses
+    MonkeyScreeches:
+      collection: MonkeyScreeches
+    RobotBeep:
+      collection: RobotBeeps
+    Yawn:
+      collection: MaleYawn
+    Snore:
+      collection: Snores
+    Honk:
+      collection: BikeHorn
+    Sigh:
+      collection: MaleSigh
+    Crying:
+      collection: MaleCry
+    Whistle:
+      collection: Whistles
+    Weh:
+      collection: Weh
+    Hew:
+      collection: Hew
+    Gasp:
+      collection: MaleGasp
+    DefaultDeathgasp:
+      collection: MaleDeathGasp
+    STAttackLoner:
+      collection: LonerAttack
+    STBackupLoner:
+      collection: LonerAttack
+    STCoverLoner:
+      collection: LonerAttack
+    STEnemyLoner:
+      collection: LonerAttack
+    STLaughLoner:
+      collection: LonerAttack
+    STGrenadeLoner:
+      collection: LonerAttack
+    STMedkitLoner:
+      collection: LonerAttack
+    STDeathLoner:
+      collection: LonerAttack
