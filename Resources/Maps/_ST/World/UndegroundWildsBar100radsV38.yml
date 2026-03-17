@@ -52,6 +52,7 @@ entities:
     - type: Broadphase
     - type: Roof
       data: {}
+    - type: ImplicitRoof
     - type: OccluderTree
     - type: StalkerSafeZone
     - type: STMapKey
