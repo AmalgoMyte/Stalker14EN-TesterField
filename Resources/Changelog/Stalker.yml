@@ -1595,5 +1595,14 @@
   id: 167
   time: '2026-03-17T19:14:03.255749+00:00'
   url: https://github.com/coolmankid12345/stalker-14-EN/pull/637
+- author: Roland410
+  changes:
+  - message: Makes all tress cuttable and stumps climbable.
+    type: Tweak
+  - message: Makes the hatchet cut trees and logs faster.
+    type: Tweak
+  id: 168
+  time: '2026-03-17T19:16:35.006839+00:00'
+  url: https://github.com/coolmankid12345/stalker-14-EN/pull/659
 Name: Stalker
 Order: -1
