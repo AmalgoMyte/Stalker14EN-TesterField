@@ -76,6 +76,34 @@
   chatTriggers:
   - stmedkit
 
+  # Special Emotes
+- type: emote
+  id: STCheekiBreeki
+  name: chat-emote-name-st-cheekibreeki
+  category: VoiceLine
+  icon: _Stalker/Decals/groupings.rsi/bandit_graf.png
+  whitelist:
+    components:
+    - Vocal
+    - CheekiBreeki
+    requireAll: true
+  chatMessages: ["chat-emote-msg-st-cheekibreeki"]
+  chatTriggers:
+  - stcheeki
+
+- type: emote
+  id: STPsyVoice
+  name: chat-emote-name-st-psyvoice
+  category: VoiceLine
+  icon: _Stalker/Decals/groupings.rsi/monolit_graf.png
+  whitelist:
+    components:
+    - Vocal
+    - PsyVoiceEmote
+    requireAll: true
+  chatTriggers:
+  - stpsy
+
   # Loner
 - type: emoteSounds
   id: MaleHumanLoner
@@ -345,6 +373,8 @@
       collection: BanditGrenade
     STMedkit:
       collection: BanditMedkit
+    STCheekiBreeki:
+      path: /Audio/_Stalker_EN/VoiceLines/Bandit/detour_7.ogg
 
 - type: emoteSounds
   id: FemaleHumanBandit
@@ -443,6 +473,10 @@
         pitch: 1.2
     STMedkit:
       collection: BanditMedkit
+      params:
+        pitch: 1.2
+    STCheekiBreeki:
+      path: /Audio/_Stalker_EN/VoiceLines/Bandit/detour_7.ogg
       params:
         pitch: 1.2
 
@@ -1455,6 +1489,8 @@
       collection: MonolithGrenade
     STMedkit:
       collection: MonolithMedkit
+    STPsyVoice:
+      collection: MonolithPsyVoice
 
 - type: emoteSounds
   id: FemaleHumanMonolith
@@ -1555,3 +1591,5 @@
       collection: MonolithMedkit
       params:
         pitch: 1.2
+    STPsyVoice:
+      collection: MonolithPsyVoice

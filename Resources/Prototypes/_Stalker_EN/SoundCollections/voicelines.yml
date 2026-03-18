@@ -758,3 +758,10 @@
   - /Audio/_Stalker_EN/VoiceLines/Monolith/Medkit/help_8.ogg
   - /Audio/_Stalker_EN/VoiceLines/Monolith/Medkit/help_9.ogg
   - /Audio/_Stalker_EN/VoiceLines/Monolith/Medkit/help_10.ogg
+
+- type: soundCollection
+  id: MonolithPsyVoice
+  files:
+  - /Audio/_Stalker_EN/Effects/psivoice1.ogg
+  - /Audio/_Stalker_EN/Effects/psivoice2.ogg
+  - /Audio/_Stalker_EN/Effects/psivoice3.ogg

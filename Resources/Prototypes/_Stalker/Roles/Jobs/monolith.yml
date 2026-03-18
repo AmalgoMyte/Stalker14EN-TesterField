@@ -61,7 +61,8 @@
         sounds:
           Male: MaleHumanMonolith
           Female: FemaleHumanMonolith
-          Unsexed: MaleHumanMonolith # stalker EN change end
+          Unsexed: MaleHumanMonolith
+      - type: PsyVoiceEmote # stalker EN change end
 
 - type: job
   id: StalkerHeadMonolith
@@ -126,7 +127,8 @@
       sounds:
         Male: MaleHumanMonolith
         Female: FemaleHumanMonolith
-        Unsexed: MaleHumanMonolith # Stalker EN change end
+        Unsexed: MaleHumanMonolith
+    - type: PsyVoiceEmote # stalker EN change end
 
 - type: startingGear
   id: MonolithGear

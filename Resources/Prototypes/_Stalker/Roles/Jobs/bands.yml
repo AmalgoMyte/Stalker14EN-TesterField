@@ -41,8 +41,9 @@
           sounds:
             Male: MaleHumanBandit
             Female: FemaleHumanBandit
-            Unsexed: MaleHumanBandit # stalker EN change end
-
+            Unsexed: MaleHumanBandit
+        - type: CheekiBreeki # stalker EN change end
+          
 - type: job
   id: StalkerHeadBandit
   name: job-head-bandit
@@ -86,7 +87,8 @@
           sounds:
             Male: MaleHumanBandit
             Female: FemaleHumanBandit
-            Unsexed: MaleHumanBandit # stalker EN change end
+            Unsexed: MaleHumanBandit
+        - type: CheekiBreeki # stalker EN change end
 
 - type: startingGear
   id: BandGear
