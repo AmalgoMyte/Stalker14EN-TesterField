@@ -170,6 +170,8 @@
 
     #values
     TradeBox: 3000
+    STFoodJarWholeEelFermented: 4500
+    STDrinkJarMoonshine: 650 # keshas eyes arent so good so he cant check to see if theres liquid in these
 
   categories:
     - name: shop-category-weapons

@@ -77,6 +77,7 @@
     FoodSTMeatStew: 900
     FoodSTKebabMeat: 450
     FoodSTFrogLegs: 750
+    STFoodJarSalo: 750
 
   categories:
     - name: shop-category-weapons
@@ -402,3 +403,9 @@
         AcousticGuitarInstrument: 250
         AccordionInstrument: 250
         HarmonicaInstrument: 250
+
+    - name: shop-category-blueprints
+      priority: 15
+      items:
+        STCookingRenderedSalo: 2000
+        STCookingPickledEggs: 2000

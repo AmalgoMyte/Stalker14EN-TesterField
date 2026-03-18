@@ -314,6 +314,7 @@
       STElasticRubberGreen: 50
       STElasticRubberBlue: 50
       FoldedFlagRene: 250
+      STRag: 10
       # Cameras
       STCamera: 750
       STCameraVintage: 1200
@@ -416,10 +417,16 @@
       ClothingShoesSwat: 35
       ClothingShoesBootsCombat: 30
 
+  - name: shop-category-blueprints
+    priority: 13
+    items:
+      STCookingLiverTartare: 2000
+
 - type: shopPreset
   id: ZealotTrader
-  # minSellPrice: 0
-  # itemsForSale:
+  minSellPrice: 0
+  itemsForSale:
+    STFoodJarMeatLiver: 3
   categories:
   - name: shop-category-weapons
     priority: 1

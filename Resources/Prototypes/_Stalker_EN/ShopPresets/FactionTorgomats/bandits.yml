@@ -255,6 +255,7 @@
         CigPackSuka: 100
         FoodSTEgg: 75
         FoodSTTomato: 75
+        STDrinkJar: 300
 
     - name: shop-category-armor
       priority: 6
@@ -359,6 +360,7 @@
         STElasticRubberGreen: 50
         STElasticRubberBlue: 50
         FoldedFlagBand: 250
+        STRag: 10
         # Cameras
         STCamera: 750
         STCameraVintage: 1200

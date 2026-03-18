@@ -144,3 +144,19 @@
   - type: Pullable
   - type: STWeight
     self: -100
+
+- type: entity
+  name: rag
+  parent: BaseItem
+  id: STRag
+  description: A simple piece of cloth for cleaning things off.
+  suffix: Stalker
+  components:
+  - type: Item
+    size: Small
+  - type: Sprite
+    sprite: Objects/Specific/Janitorial/rag.rsi
+    state: rag
+  - type: STWeight
+    self: 0.1
+  - type: Craftable
