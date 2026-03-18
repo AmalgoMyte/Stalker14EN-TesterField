@@ -3,7 +3,7 @@
   name: chat-emote-name-st-attack
   category: VoiceLine
   available: true
-  icon: Interface/Emotes/whistle.png
+  icon: _Stalker_EN/Interface/Emotes/attack.png
   whitelist:
     components:
     - Vocal
@@ -16,7 +16,7 @@
   name: chat-emote-name-st-backup
   category: VoiceLine
   available: true
-  icon: Interface/Emotes/whistle.png
+  icon: _Stalker_EN/Interface/Emotes/backup.png
   whitelist:
     components:
     - Vocal
@@ -29,7 +29,7 @@
   name: chat-emote-name-st-cover
   category: VoiceLine
   available: true
-  icon: Interface/Emotes/whistle.png
+  icon: _Stalker_EN/Interface/Emotes/cover.png
   whitelist:
     components:
     - Vocal
@@ -42,7 +42,7 @@
   name: chat-emote-name-st-enemy
   category: VoiceLine
   available: true
-  icon: Interface/Emotes/whistle.png
+  icon: _Stalker_EN/Interface/Emotes/enemy.png
   whitelist:
     components:
     - Vocal
@@ -55,7 +55,7 @@
   name: chat-emote-name-st-grenade
   category: VoiceLine
   available: true
-  icon: Interface/Emotes/whistle.png
+  icon: _Stalker_EN/Interface/Emotes/grenade.png
   whitelist:
     components:
     - Vocal
@@ -68,7 +68,7 @@
   name: chat-emote-name-st-medkit
   category: VoiceLine
   available: true
-  icon: Interface/Emotes/whistle.png
+  icon: _Stalker_EN/Interface/Emotes/medkit.png
   whitelist:
     components:
     - Vocal
