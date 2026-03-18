@@ -38,9 +38,9 @@
         - Sci
       - type: Vocal # stalker EN change start
         sounds:
-          Male: MaleHumanEcologist
-          Female: FemaleHumanEcologist
-          Unsexed: MaleHumanEcologist # stalker EN change end
+          Male: MaleHumanEcologists
+          Female: FemaleHumanEcologists
+          Unsexed: MaleHumanEcologists # stalker EN change end
 
 - type: job
   id: StalkerHeadEcologist
@@ -82,6 +82,6 @@
           - Sci
         - type: Vocal # stalker EN change start
           sounds:
-            Male: MaleHumanEcologist
-            Female: FemaleHumanEcologist
-            Unsexed: MaleHumanEcologist # stalker EN change end
+            Male: MaleHumanEcologists
+            Female: FemaleHumanEcologists
+            Unsexed: MaleHumanEcologists # stalker EN change end
