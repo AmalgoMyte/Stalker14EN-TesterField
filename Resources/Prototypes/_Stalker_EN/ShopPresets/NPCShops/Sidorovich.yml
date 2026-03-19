@@ -105,14 +105,13 @@
     FoodMeatSTFishFilletCooked: 25
     FoodMeatSTFishSteakCooked: 75
     FoodMeatSTEelCooked: 150
-    STFoodMeatCvarci: 5 # 15 profit per salo baby!
+    STFoodMeatCvarci: 22
     FoodMeatSTRatCooked: 5 # whatever
     FoodMeatSTRatJerked: 10
     FoodMeatSTDogJerkedSingle: 75
     FoodMeatSTBoarJerkedSingle: 125
     FoodMeatSTBearJerkedSingle: 245
     FoodMeatSTSuckerJerkedSingle: 600
-    FoodSaloSlice: 35
     STFoodMeatSalo: 35
 
     #Lumber

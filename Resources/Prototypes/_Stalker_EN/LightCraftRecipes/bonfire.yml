@@ -1,0 +1,88 @@
+﻿- type: lightCraftingRecipe
+  id: T1TradePlankCraft
+  results:
+  - STTradePlankT1
+  steps:
+    firstIngredient: HatchetStalker
+    secondIngredient: STCraftPinePlankT1
+    keepFirst: true
+    exactSecond: false
+    time: 5
+
+- type: lightCraftingRecipe
+  id: T2TradePlankCraft
+  results:
+  - STTradePlankT2
+  steps:
+    firstIngredient: HatchetStalker
+    secondIngredient: STCraftBirchPlankT2
+    keepFirst: true
+    exactSecond: false
+    time: 5
+
+- type: lightCraftingRecipe
+  id: T3TradePlankCraft
+  results:
+  - STTradePlankT3
+  steps:
+    firstIngredient: HatchetStalker
+    secondIngredient: STCraftOakPlankT3
+    keepFirst: true
+    exactSecond: false
+    time: 5
+
+- type: lightCraftingRecipe
+  id: T4TradePlankCraft
+  results:
+  - STTradePlankT4
+  steps:
+    firstIngredient: HatchetStalker
+    secondIngredient: STCraftYewPlankT4
+    keepFirst: true
+    exactSecond: false
+    time: 5
+
+- type: lightCraftingRecipe
+  id: T1TradePlankCraftSponsor
+  results:
+  - STTradePlankT1
+  steps:
+    firstIngredient: STHatchetSponsor
+    secondIngredient: STCraftPinePlankT1
+    keepFirst: true
+    exactSecond: false
+    time: 5
+
+- type: lightCraftingRecipe
+  id: T2TradePlankCraftSponsor
+  results:
+  - STTradePlankT2
+  steps:
+    firstIngredient: STHatchetSponsor
+    secondIngredient: STCraftBirchPlankT2
+    keepFirst: true
+    exactSecond: false
+    time: 5
+
+- type: lightCraftingRecipe
+  id: T3TradePlankCraftSponsor
+  results:
+  - STTradePlankT3
+  steps:
+    firstIngredient: STHatchetSponsor
+    secondIngredient: STCraftOakPlankT3
+    keepFirst: true
+    exactSecond: false
+    time: 5
+
+- type: lightCraftingRecipe
+  id: T4TradePlankCraftSponsor
+  results:
+  - STTradePlankT4
+  steps:
+    firstIngredient: STHatchetSponsor
+    secondIngredient: STCraftYewPlankT4
+    keepFirst: true
+    exactSecond: false
+    time: 5
+
