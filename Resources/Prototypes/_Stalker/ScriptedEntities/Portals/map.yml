@@ -128,14 +128,6 @@
 
 - type: entity
   parent: MapTeleportBase
-  id: Kordon-Svalka2
-  name: Kordon-Svalka2
-  components:
-  - type: Portal
-    cooldown: 30
-
-- type: entity
-  parent: MapTeleportBase
   id: Kordon-Svalka1
   name: Kordon-Svalka1
   components:
@@ -258,11 +250,6 @@
   parent: MapTeleportBase
   id: Svalka-UndergrundSvalkaStock
   name: Svalka-UndergrundSvalkaStock
-
-- type: entity
-  parent: MapTeleportBase
-  id: UndergrundSvalkaStock-Svalka
-  name: UndergrundSvalkaStock-Svalka
 
 ######################################################Кордон-Лощина
 - type: entity
@@ -604,14 +591,6 @@
   - type: AccessReader
     access: [["Military"]]
 
-- type: entity
-  parent: MapTeleportBaseUncollide
-  id: MilBase1-Predbannik
-  name: MilBase1-Predbannik
-  components:
-  - type: AccessReader
-    access: [["Military"]]
-
 ################################################### Топи, Свалка - Рыжий лес
 - type: entity
   parent: MapTeleportBase
@@ -764,24 +743,8 @@
 
 - type: entity
   parent: MapTeleportBase
-  id: Topi-Bar
-  name: Topi-Bar
-  components:
-  - type: Portal
-    cooldown: 30
-
-- type: entity
-  parent: MapTeleportBase
   id: RedForest-Limansk
   name: Рыжий Лес - Лиманск
-  components:
-  - type: Portal
-    cooldown: 5
-
-- type: entity
-  parent: MapTeleportBase
-  id: Limansk-RedForest
-  name: Лиманск - Рыжий Лес
   components:
   - type: Portal
     cooldown: 5
@@ -794,35 +757,17 @@
   - type: Portal
     cooldown: 5
 
-- type: entity
-  parent: MapTeleportBase
-  id: Limansk-RedForest2
-  name: Лиманск - Рыжий Лес 2
-  components:
-  - type: Portal
-    cooldown: 5
-
 ################################################### Вход в бункер учёных на кордоне
 - type: entity
   parent: MapTeleportBase
   id: Kordon-Bunker
   name: Kordon-Bunker
 
-- type: entity
-  parent: MapTeleportBase
-  id: Bunker-Kordon
-  name: Bunker-Kordon
-
 ######## Лощина
 - type: entity
   parent: MapTeleportBase
   id: Kordon-Loshina
   name: Kordon-Loshina
-
-- type: entity
-  parent: MapTeleportBase
-  id: Loshina-Kordon
-  name: Loshina-Kordon
 
 - type: entity
   parent: MapTeleportBase
@@ -865,29 +810,14 @@
   id: Agro-Kordon
   name: Agro-Kordon
 
-- type: entity
-  parent: MapTeleportBase
-  id: Kordon-Agro
-  name: Kordon-Agro
-
 ### Долина - кордон
 - type: entity
   parent: MapTeleportBase
   id: Dolina-Kordon
   name: Dolina-Kordon
 
-- type: entity
-  parent: MapTeleportBase
-  id: Kordon-Dolina
-  name: Kordon-Dolina
-
 ### Долина - рыжий лес
 - type: entity
   parent: MapTeleportBase
   id: Dolina-RedForest
   name: Dolina-RedForest
-
-- type: entity
-  parent: MapTeleportBase
-  id: RedForest-Dolina
-  name: RedForest-Dolina
