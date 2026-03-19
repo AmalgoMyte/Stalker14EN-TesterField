@@ -8,6 +8,8 @@ using Content.Shared.Humanoid;
 using Content.Shared.IdentityManagement.Components;
 using Content.Shared.Inventory;
 using Content.Shared.Inventory.Events;
+using Content.Shared.Mobs; // stalker-en-changes
+using Content.Shared.Mobs.Systems; // stalker-en-changes
 using Content.Shared._Stalker_EN.AnonymousAlias; // stalker-en-changes
 using Robust.Shared.Containers;
 using Robust.Shared.Utility; // stalker-en-changes: FormattedMessage.EscapeText
@@ -30,6 +32,8 @@ public sealed class IdentitySystem : EntitySystem
     [Dependency] private readonly SharedCriminalRecordsConsoleSystem _criminalRecordsConsole = default!;
     [Dependency] private readonly SharedHumanoidAppearanceSystem _humanoid = default!;
     [Dependency] private readonly SharedIdCardSystem _idCard = default!;
+    [Dependency] private readonly MobStateSystem _mobState = default!; // stalker-en-changes
+
     // The name of the container holding the identity entity
     private const string SlotName = "identity";
 
@@ -55,6 +59,8 @@ public sealed class IdentitySystem : EntitySystem
         SubscribeLocalEvent<IdentityComponent, WearerMaskToggledEvent>((uid, _, _) => QueueIdentityUpdate(uid));
         SubscribeLocalEvent<IdentityComponent, EntityRenamedEvent>((uid, _, _) => QueueIdentityUpdate(uid));
 
+        // stalker-en-changes: re-evaluate identity when revived
+        SubscribeLocalEvent<IdentityComponent, MobStateChangedEvent>(OnMobStateChanged);
     }
 
     /// <summary>
@@ -114,6 +120,13 @@ public sealed class IdentitySystem : EntitySystem
         OnSeeIdentity(ent, ref args.Args);
     }
 
+    // stalker-en-changes: when revived, re-evaluate identity based on current equipment
+    private void OnMobStateChanged(EntityUid uid, IdentityComponent comp, MobStateChangedEvent args)
+    {
+        if (args.OldMobState == MobState.Dead && args.NewMobState != MobState.Dead)
+            QueueIdentityUpdate(uid);
+    }
+
     // Toggles if a mask is hiding the identity.
     private void OnMaskToggled(Entity<IdentityBlockerComponent> ent, ref ItemMaskToggledEvent args)
     {
@@ -129,6 +142,10 @@ public sealed class IdentitySystem : EntitySystem
     public void QueueIdentityUpdate(EntityUid uid)
     {
         if (_timing.ApplyingState)
+            return;
+
+        // stalker-en-changes: freeze identity on dead entities to preserve alias on corpses
+        if (_mobState.IsDead(uid))
             return;
 
         _queuedIdentityUpdates.Add(uid);
