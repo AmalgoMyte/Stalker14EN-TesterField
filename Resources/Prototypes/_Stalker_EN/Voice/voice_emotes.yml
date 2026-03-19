@@ -109,7 +109,7 @@
   id: MaleHumanLoner
   sounds:
     Scream:
-      collection: ShitpostScream
+      collection: MaleScreams
       params:
         variation: 0.125
     Laugh:
@@ -171,7 +171,7 @@
       params:
         variation: 0.125
     Gasp:
-      collection: ShitpostPainMale
+      collection: MaleGasp
       params:
         variation: 0.125
     DefaultDeathgasp:
@@ -193,7 +193,7 @@
   id: FemaleHumanLoner
   sounds:
     Scream:
-      collection: ShitpostScream
+      collection: FemaleScreams
       params:
         variation: 0.125
     Laugh:
@@ -257,7 +257,7 @@
       params:
         variation: 0.125
     Gasp:
-      collection: ShitpostPainFemale
+      collection: FemaleGasp
       params:
         variation: 0.125
     DefaultDeathgasp:
@@ -294,7 +294,7 @@
   id: MaleHumanBandit
   sounds:
     Scream:
-      collection: ShitpostScream
+      collection: MaleScreams
       params:
         variation: 0.125
     Laugh:
@@ -356,7 +356,7 @@
       params:
         variation: 0.125
     Gasp:
-      collection: ShitpostPainMale
+      collection: MaleGasp
       params:
         variation: 0.125
     DefaultDeathgasp:
@@ -380,7 +380,7 @@
   id: FemaleHumanBandit
   sounds:
     Scream:
-      collection: ShitpostScream
+      collection: FemaleScreams
       params:
         variation: 0.125
     Laugh:
@@ -444,7 +444,7 @@
       params:
         variation: 0.125
     Gasp:
-      collection: ShitpostPainFemale
+      collection: FemaleGasp
       params:
         variation: 0.125
     DefaultDeathgasp:
@@ -485,7 +485,7 @@
   id: MaleHumanDuty
   sounds:
     Scream:
-      collection: ShitpostScream
+      collection: MaleScreams
       params:
         variation: 0.125
     Laugh:
@@ -547,7 +547,7 @@
       params:
         variation: 0.125
     Gasp:
-      collection: ShitpostPainMale
+      collection: MaleGasp
       params:
         variation: 0.125
     DefaultDeathgasp:
@@ -569,7 +569,7 @@
   id: FemaleHumanDuty
   sounds:
     Scream:
-      collection: ShitpostScream
+      collection: FemaleScreams
       params:
         variation: 0.125
     Laugh:
@@ -633,7 +633,7 @@
       params:
         variation: 0.125
     Gasp:
-      collection: ShitpostPainFemale
+      collection: FemaleGasp
       params:
         variation: 0.125
     DefaultDeathgasp:
@@ -670,7 +670,7 @@
   id: MaleHumanEcologists
   sounds:
     Scream:
-      collection: ShitpostScream
+      collection: MaleScreams
       params:
         variation: 0.125
     Laugh:
@@ -732,7 +732,7 @@
       params:
         variation: 0.125
     Gasp:
-      collection: ShitpostPainMale
+      collection: MaleGasp
       params:
         variation: 0.125
     DefaultDeathgasp:
@@ -754,7 +754,7 @@
   id: FemaleHumanEcologists
   sounds:
     Scream:
-      collection: ShitpostScream
+      collection: FemaleScreams
       params:
         variation: 0.125
     Laugh:
@@ -818,7 +818,7 @@
       params:
         variation: 0.125
     Gasp:
-      collection: ShitpostPainFemale
+      collection: FemaleGasp
       params:
         variation: 0.125
     DefaultDeathgasp:
@@ -855,7 +855,7 @@
   id: MaleHumanFreedom
   sounds:
     Scream:
-      collection: ShitpostScream
+      collection: MaleScreams
       params:
         variation: 0.125
     Laugh:
@@ -917,7 +917,7 @@
       params:
         variation: 0.125
     Gasp:
-      collection: ShitpostPainMale
+      collection: MaleGasp
       params:
         variation: 0.125
     DefaultDeathgasp:
@@ -939,7 +939,7 @@
   id: FemaleHumanFreedom
   sounds:
     Scream:
-      collection: ShitpostScream
+      collection: FemaleScreams
       params:
         variation: 0.125
     Laugh:
@@ -1003,7 +1003,7 @@
       params:
         variation: 0.125
     Gasp:
-      collection: ShitpostPainFemale
+      collection: FemaleGasp
       params:
         variation: 0.125
     DefaultDeathgasp:
@@ -1040,7 +1040,7 @@
   id: MaleHumanMerc
   sounds:
     Scream:
-      collection: ShitpostScream
+      collection: MaleScreams
       params:
         variation: 0.125
     Laugh:
@@ -1102,7 +1102,7 @@
       params:
         variation: 0.125
     Gasp:
-      collection: ShitpostPainMale
+      collection: MaleGasp
       params:
         variation: 0.125
     DefaultDeathgasp:
@@ -1124,7 +1124,7 @@
   id: FemaleHumanMerc
   sounds:
     Scream:
-      collection: ShitpostScream
+      collection: FemaleScreams
       params:
         variation: 0.125
     Laugh:
@@ -1188,7 +1188,7 @@
       params:
         variation: 0.125
     Gasp:
-      collection: ShitpostPainFemale
+      collection: FemaleGasp
       params:
         variation: 0.125
     DefaultDeathgasp:
@@ -1225,7 +1225,7 @@
   id: MaleHumanMilitary
   sounds:
     Scream:
-      collection: ShitpostScream
+      collection: MaleScreams
       params:
         variation: 0.125
     Laugh:
@@ -1287,7 +1287,7 @@
       params:
         variation: 0.125
     Gasp:
-      collection: ShitpostPainMale
+      collection: MaleGasp
       params:
         variation: 0.125
     DefaultDeathgasp:
@@ -1309,7 +1309,7 @@
   id: FemaleHumanMilitary
   sounds:
     Scream:
-      collection: ShitpostScream
+      collection: FemaleScreams
       params:
         variation: 0.125
     Laugh:
@@ -1373,7 +1373,7 @@
       params:
         variation: 0.125
     Gasp:
-      collection: ShitpostPainFemale
+      collection: FemaleGasp
       params:
         variation: 0.125
     DefaultDeathgasp:
@@ -1410,7 +1410,7 @@
   id: MaleHumanMonolith
   sounds:
     Scream:
-      collection: ShitpostScream
+      collection: MaleScreams
       params:
         variation: 0.125
     Laugh:
@@ -1472,7 +1472,7 @@
       params:
         variation: 0.125
     Gasp:
-      collection: ShitpostPainMale
+      collection: MaleGasp
       params:
         variation: 0.125
     DefaultDeathgasp:
@@ -1496,7 +1496,7 @@
   id: FemaleHumanMonolith
   sounds:
     Scream:
-      collection: ShitpostScream
+      collection: FemaleScreams
       params:
         variation: 0.125
     Laugh:
@@ -1560,7 +1560,7 @@
       params:
         variation: 0.125
     Gasp:
-      collection: ShitpostPainFemale
+      collection: FemaleGasp
       params:
         variation: 0.125
     DefaultDeathgasp:
