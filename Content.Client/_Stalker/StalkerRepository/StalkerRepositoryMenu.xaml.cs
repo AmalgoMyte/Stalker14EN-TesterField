@@ -163,13 +163,25 @@ public sealed partial class StalkerRepositoryMenu : DefaultWindow
         PutInsideButton.Visible = false;
         RepositoryWeight.Text = Loc.GetString("repository-weight-inside", ("weight", Math.Round(_curWeight, 2)), ("maxWeight", _maxWeight));
         var categorizedItems = items
-            .Where(i => string.IsNullOrEmpty(filter) ||
-                   i.Name.Contains(filter.Trim(), StringComparison.InvariantCultureIgnoreCase))
+            .Where(i =>
+                //filter logic
+                (string.IsNullOrEmpty(filter) ||
+                 i.Name.Contains(filter.Trim(), StringComparison.InvariantCultureIgnoreCase)) &&
+                //category logic
+                (
+                    (_currentCategory == _allCategory && !i.UserItem) ||
+                    (_currentCategory == _userCategory && i.UserItem) ||
+                    (i.Category == _currentCategory.Item1 && !i.UserItem)
+                )
+                        )
             .OrderBy(i => i.Category)
             .GroupBy(i => i.Category);
 
         foreach (var category in categorizedItems)
         {
+            if (!category.Any())
+                return;
+
             ItemContainer.AddChild(new PanelContainer
             {
                 PanelOverride = new StyleBoxFlat
@@ -216,24 +228,6 @@ public sealed partial class StalkerRepositoryMenu : DefaultWindow
                     PutInsideButton.OnPressed -= PutInsideHandler;
                     PutInsideButton.OnPressed += PutInsideHandler;
                 };
-
-                if (_currentCategory == _userCategory)
-                {
-                    if (item.UserItem)
-                    {
-                        containedItems.AddChild(control);
-                        continue;
-                    }
-                }
-
-                if (_currentCategory == _allCategory && !item.UserItem)
-                {
-                    containedItems.AddChild(control);
-                    continue;
-                }
-
-                if (item.Category != _currentCategory.Item1 || item.UserItem)
-                    continue;
 
                 containedItems.AddChild(control);
             }
