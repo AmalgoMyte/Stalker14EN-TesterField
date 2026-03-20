@@ -63,6 +63,7 @@
       count: 1
     - type: Craftable
     - type: RepositoryItem
+      categoryName: repository-crafting-category
     - type: Tag
       tags:
       - Lumber
