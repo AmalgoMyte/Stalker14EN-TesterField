@@ -1704,5 +1704,16 @@
   id: 179
   time: '2026-03-19T19:48:43.273714+00:00'
   url: https://github.com/coolmankid12345/stalker-14-EN/pull/677
+- author: teecoding
+  changes:
+  - message: Masked players now show a unique anonymous alias instead of "Unknown"
+    type: Add
+  - message: Character editor lets you pick your alias name and color
+    type: Add
+  - message: Anonymous aliases no longer disappear on dead bodies
+    type: Fix
+  id: 180
+  time: '2026-03-20T19:31:17.483895+00:00'
+  url: https://github.com/coolmankid12345/stalker-14-EN/pull/678
 Name: Stalker
 Order: -1
