@@ -1715,5 +1715,12 @@
   id: 180
   time: '2026-03-20T19:31:17.483895+00:00'
   url: https://github.com/coolmankid12345/stalker-14-EN/pull/678
+- author: King-spin
+  changes:
+  - message: Rene teeth necklace
+    type: Add
+  id: 181
+  time: '2026-03-20T19:34:28.302016+00:00'
+  url: https://github.com/coolmankid12345/stalker-14-EN/pull/651
 Name: Stalker
 Order: -1
