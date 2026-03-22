@@ -1758,5 +1758,14 @@
   id: 185
   time: '2026-03-22T11:35:54.417354+00:00'
   url: https://github.com/coolmankid12345/stalker-14-EN/pull/683
+- author: Roland410
+  changes:
+  - message: Adds new repository categories to make items easier to find.
+    type: Add
+  - message: Organizes the repository items into proper categories.
+    type: Tweak
+  id: 186
+  time: '2026-03-22T11:43:32.256242+00:00'
+  url: https://github.com/coolmankid12345/stalker-14-EN/pull/689
 Name: Stalker
 Order: -1
