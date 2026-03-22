@@ -358,11 +358,11 @@
         RobustHarvestChemistryBottleStalker: 50
         E-Z-NutrientChemistryBottleStalker: 50
         CannabisSeedsStalker: 70
-        CarrotSeeds: 70
-        STGoldShovel: 100
-        TomatoSeeds: 70
-        PotatoSeeds: 70
-        CabbageSeeds: 70
-        OnionSeeds: 70
-        RiceSeeds: 70
-        CornSeeds: 70
+        CarrotSeedsST: 70
+        STGoldShovel: 70
+        TomatoSeedsST: 70
+        PotatoSeedsST: 70
+        CabbageSeedsST: 70
+        OnionSeedsST: 70
+        RiceSeedsST: 70
+        CornSeedsST: 70
