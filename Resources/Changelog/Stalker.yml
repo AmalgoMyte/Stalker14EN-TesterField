@@ -1747,5 +1747,16 @@
   id: 184
   time: '2026-03-22T11:33:00.393959+00:00'
   url: https://github.com/coolmankid12345/stalker-14-EN/pull/682
+- author: dallaszzz
+  changes:
+  - message: Fixed the backup emote making no sound for everyone but loners
+    type: Fix
+  - message: The female laughs were reverted back to vanilla
+    type: Tweak
+  - message: Some laugh sfx with dialogue in them were removed
+    type: Remove
+  id: 185
+  time: '2026-03-22T11:35:54.417354+00:00'
+  url: https://github.com/coolmankid12345/stalker-14-EN/pull/683
 Name: Stalker
 Order: -1
