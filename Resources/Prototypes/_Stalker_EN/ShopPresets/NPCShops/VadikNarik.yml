@@ -13,6 +13,7 @@
       FoodBakedCannabisBrownie: 50
       SmokingPipeFilledCannabis: 100
       Blunt: 60
+      JointLarge: 600
   - name: Gardening
     priority: 2
     items:

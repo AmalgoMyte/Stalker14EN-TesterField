@@ -137,3 +137,53 @@
           Quantity: 10
         - ReagentId: Lead
           Quantity: 10
+
+- type: entity
+  id: JointLarge
+  parent: BaseCigar
+  name: comedically large blunt
+  description: This thing is the size of your forearm, it's a wonder you can even hold it, let alone smoke it. Try not to green out.
+  components:
+  - type: Sprite
+    sprite: _Stalker_EN/Objects/Consumable/Smokables/big_ass_blunt/icon.rsi
+    state: unlit-icon
+  - type: Tag
+    tags:
+    - Cigarette
+    - Trash
+  - type: SpaceGarbage
+  - type: Clothing
+    sprite: _Stalker_EN/Objects/Consumable/Smokables/big_ass_blunt/worn_inhands.rsi
+    slots: [ mask ]
+    equippedPrefix: unlit
+  - type: Item
+    size: Normal
+    shape:
+    - 0,0,0,3
+    storedRotation: -45
+    inhandVisuals:
+      left:
+      - state: unlit-inhand-left
+      right:
+      - state: unlit-inhand-right
+  - type: Construction
+    graph: smokeableJoint
+    node: joint
+  - type: SolutionContainerManager
+    solutions:
+      smokable:
+        maxVol: 350
+        reagents:
+        - ReagentId: THC
+          Quantity: 300
+
+- type: craftRecipe
+  id: STLargeBluntRecipe
+  resultProtos:
+  - JointLarge
+  craftTime: 15
+  items:
+    STPaperRolling:
+      amount: 5
+    STGroundCannabis:
+      amount: 10
