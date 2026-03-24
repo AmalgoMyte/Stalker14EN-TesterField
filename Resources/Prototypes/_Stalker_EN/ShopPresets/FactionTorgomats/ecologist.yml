@@ -347,6 +347,7 @@
         CardBin: 100
         PokerCardBin: 150
 
+
     - name: Smokables #explained using D&D lifestyle expenses
       priority: 14
       items:
@@ -359,3 +360,22 @@
         CigPackMixed: 250 #comfortable
         CigPackMarlboro: 200 #modest
         CigPackKosmos: 100 #squalid
+
+    - name: Gardening
+      priority: 15
+      items:
+        HydroponicsToolScythe: 200
+        HydroponicsToolMiniHoe: 70
+        Bucket: 60
+        StalkerGrinder: 150
+        RobustHarvestChemistryBottleStalker: 50
+        E-Z-NutrientChemistryBottleStalker: 50
+        CannabisSeedsStalker: 70
+        STCarrotSeeds: 70
+        STGoldShovel: 70
+        STTomatoSeeds: 70
+        STPotatoSeeds: 70
+        STCabbageSeeds: 70
+        STOnionSeeds: 70
+        STRiceSeeds: 70
+        STCornSeeds: 70
