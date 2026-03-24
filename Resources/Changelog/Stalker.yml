@@ -1822,5 +1822,12 @@
   id: 191
   time: '2026-03-24T21:37:16.189990+00:00'
   url: https://github.com/coolmankid12345/stalker-14-EN/pull/706
+- author: stickycheZ101
+  changes:
+  - message: added a shovel to sido's shop
+    type: Add
+  id: 192
+  time: '2026-03-24T21:48:15.277506+00:00'
+  url: https://github.com/coolmankid12345/stalker-14-EN/pull/690
 Name: Stalker
 Order: -1
