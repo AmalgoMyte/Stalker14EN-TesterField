@@ -214,6 +214,24 @@
   - type: Portal
     cooldown: 5
 
+# Monolith
+
+- type: entity
+  parent: MapTeleportBase
+  id: Mono-Yantar
+  name: Mono-Yantar
+  components:
+  - type: AccessReader
+    access: [["Monolith"]]
+
+- type: entity
+  parent: MapTeleportBaseUncollide
+  id: Mono-YantarUncollide
+  name: Mono-YantarUncollide
+  components:
+  - type: LinkByString
+    linkString: Mono-Yantar
+
 # Merc
 
 - type: entity
