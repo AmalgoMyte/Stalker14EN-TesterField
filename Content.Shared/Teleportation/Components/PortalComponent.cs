@@ -15,13 +15,13 @@ public sealed partial class PortalComponent : Component
     ///     The arrival sound of the entered portal will play if the destination is not a portal.
     /// </summary>
     [DataField("arrivalSound")]
-    public SoundSpecifier ArrivalSound = new SoundPathSpecifier("/Audio/Effects/teleport_arrival.ogg");
+    public SoundSpecifier? ArrivalSound; //stalker-en-changes - no sounds by default
 
     /// <summary>
     ///     Sound played on departing from this portal, centered on the original portal.
     /// </summary>
     [DataField("departureSound")]
-    public SoundSpecifier DepartureSound = new SoundPathSpecifier("/Audio/Effects/teleport_departure.ogg");
+    public SoundSpecifier? DepartureSound; //stalker-en-changes - no sounds by default
 
     /// <summary>
     ///     If no portals are linked, the subject will be teleported a random distance at maximum this far away.

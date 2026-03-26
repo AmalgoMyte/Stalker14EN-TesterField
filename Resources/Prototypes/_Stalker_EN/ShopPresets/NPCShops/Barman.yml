@@ -440,6 +440,11 @@
         BookCookingStalkerGuide: 200
         BookCookingStalkerHomemade: 800
         STRag: 10
+        # Cameras
+        STCamera: 750
+        STCameraVintage: 1200
+        STCameraDamaged: 400
+        STCameraFilm: 150
 
     - name: shop-category-modules
       priority: 12

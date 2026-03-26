@@ -60,14 +60,6 @@
   - type: AccessReader
     access: [["Monolith"]]
 
-- type: entity
-  parent: MapTeleportBase
-  id: RedForest-LimaBase
-  name: RedForest-LimaBase
-  components:
-  - type: AccessReader
-    access: [["Monolith"]]
-
 ####################################Бандиты
 
 - type: entity
@@ -132,7 +124,6 @@
   name: Purgatory-Les (spawn)
   components:
   - type: Portal
-    cooldown: 0
   - type: AccessReader
     access: [["SciBase"]]
 
