@@ -37,6 +37,7 @@
     Magazine762x39PKM: 6
     GaussRifle: 5
     GaussMag: 25
+    ClothingOuterArmorSSP99Moneygang: 1
 
 - type: entity
   parent: BaseItem

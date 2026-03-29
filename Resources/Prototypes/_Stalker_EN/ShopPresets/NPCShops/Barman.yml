@@ -349,6 +349,7 @@
         # Belt
         ClothingBeltBandolierStalker: 75
         ClothingBeltTarzanOrange: 200
+        ClothingOuterArmorSSP99Moneygang: 42069
 
     - name: shop-category-storage-and-containers
       priority: 8

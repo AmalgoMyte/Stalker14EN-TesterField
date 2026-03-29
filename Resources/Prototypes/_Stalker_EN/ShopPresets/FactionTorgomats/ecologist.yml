@@ -118,6 +118,7 @@
         ClothingOuterArmorSSP24Sapfire: 4500
         ClothingOuterArmorSevaSciWhite: 1550
         ClothingOuterArmorSevaSciRed: 1750
+        ClothingOuterArmorSSP99Moneygang: 6969
 
     - name: shop-category-storage-and-containers
       priority: 7
