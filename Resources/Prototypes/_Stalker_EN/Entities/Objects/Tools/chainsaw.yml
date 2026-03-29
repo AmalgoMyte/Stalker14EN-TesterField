@@ -36,15 +36,8 @@
     size: Normal
     sprite: Objects/Weapons/Melee/chainsaw.rsi
   - type: DisarmMalus
-  - type: RefillableSolution
-    solution: Welder
-  - type: SolutionContainerManager
-    solutions:
-      Welder:
-        reagents:
-        - ReagentId: WeldingFuel
-          Quantity: 300
-        maxVol: 300
   - type: UseDelay
     delay: 1
   - type: Craftable
+  - type: RepositoryItem
+    categoryName: repository-weapons-category
