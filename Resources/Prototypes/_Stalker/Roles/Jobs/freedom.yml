@@ -1,6 +1,6 @@
 - type: job
   id: StalkerFreedom
-  name: job-freedom
+  name: New California Republic Trooper
   icon: freedom
   description: job-freedom-desc
   playTimeTracker: JobFreedom
@@ -44,7 +44,7 @@
 
 - type: job
   id: StalkerHeadFreedom
-  name: job-head-freedom
+  name: President Kimball
   icon: freedom
   description: job-head-freedom-desc
   playTimeTracker: JobHeadFreedom
