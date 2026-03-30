@@ -114,6 +114,7 @@
         754FMJBox: 2500 # T3
         754HPBox: 1250 # Mutant
         # Other
+        8mmRepulseBox: 1000
 
     - name: shop-category-medicine
       priority: 4

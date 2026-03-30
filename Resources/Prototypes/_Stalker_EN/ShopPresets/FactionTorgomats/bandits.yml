@@ -226,6 +226,7 @@
         MagazineBox357MagnumAP: 1500 # T3
         MagazineBox357MagnumHP: 800 # Mutant
         739HEBox: 2500
+        8mmRepulseBox: 1000
 
     - name: shop-category-medicine # 50% discount from stalkers
       priority: 4

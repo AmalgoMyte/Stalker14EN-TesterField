@@ -163,6 +163,7 @@
         45ACPAPBox: 1500 # T3
         45ACPRIPBox: 500 # Mutant
         739HEBox: 2500
+        8mmRepulseBox: 1000
 
     - name: shop-category-medicine
       priority: 4

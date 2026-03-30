@@ -39,6 +39,7 @@
     GaussMag: 25
     ClothingOuterArmorSSP99Moneygang: 1
     739HEBox: 5
+    8mmRepulseBox: 5
 
 - type: entity
   parent: BaseItem

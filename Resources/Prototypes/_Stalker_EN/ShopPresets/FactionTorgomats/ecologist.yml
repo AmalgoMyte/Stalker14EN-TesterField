@@ -60,6 +60,7 @@
         556FMJBox: 300
         556M855Box: 3000
         739HEBox: 2500
+        8mmRepulseBox: 1000
 
     - name: shop-category-medicine # 70% discount from stalkers
       priority: 4

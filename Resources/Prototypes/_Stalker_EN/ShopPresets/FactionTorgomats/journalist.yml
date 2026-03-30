@@ -28,6 +28,8 @@
         725PBox: 100
         725LRNPCBox: 50
         739HEBox: 2500
+        8mmRepulseBox: 1000
+
     - name: shop-category-armor
       priority: 4
       items:

@@ -172,6 +172,7 @@
         MagazineBox357MagnumAP: 1400 # T3
         MagazineBox357MagnumHP: 600 # Mutant
         739HEBox: 2500
+        8mmRepulseBox: 1000
 
     - name: shop-category-medicine
       priority: 4

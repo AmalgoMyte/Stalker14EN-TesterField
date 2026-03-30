@@ -233,6 +233,7 @@
         45ACPRIPBox: 675 # Mutant
         45ACPMFMJBox: 275 # T2
         739HEBox: 2500
+        8mmRepulseBox: 1000
 
     - name: shop-category-medicine
       priority: 4

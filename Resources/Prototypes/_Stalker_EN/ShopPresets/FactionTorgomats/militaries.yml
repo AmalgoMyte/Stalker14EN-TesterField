@@ -147,6 +147,7 @@
       MagazineBox357Magnum: 260 # T2
       MagazineBox357MagnumAP: 500 # T3
       739HEBox: 2500
+      8mmRepulseBox: 1000
 
   - name: shop-category-armor
     priority: 4

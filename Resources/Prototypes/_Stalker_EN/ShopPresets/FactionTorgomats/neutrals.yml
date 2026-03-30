@@ -188,6 +188,7 @@
       45ACPMFMJBox: 1550 # T2
       45ACPAPBox: 1950 # T3
       739HEBox: 2500
+      8mmRepulseBox: 1000
 
   - name: shop-category-medicine
     priority: 4
