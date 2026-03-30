@@ -410,6 +410,9 @@
         ZoneArtifactDetectorHunter: 700
         ZoneArtifactDetectorResponse: 2100
         ZoneArtifactDetectorSpruce: 6575 #T3
+        ZoneArtifactDetectorBarracuda: 7000
+        ZoneArtifactDetectorBear: 15000
+        ZoneArtifactDetectorWolfhound: 25000
         Veles: 8000 # T3
         TrashDetectorTier1: 200
         TrashDetectorTier2: 400
