@@ -1973,5 +1973,12 @@
   id: 207
   time: '2026-03-30T19:47:36.464778+00:00'
   url: https://github.com/coolmankid12345/stalker-14-EN/pull/719
+- author: Noguchi47
+  changes:
+  - message: Update the Midi soundfont (GeneralUser GS) to the newest version.
+    type: Add
+  id: 208
+  time: '2026-03-30T19:49:43.855542+00:00'
+  url: https://github.com/coolmankid12345/stalker-14-EN/pull/736
 Name: Stalker
 Order: -1
