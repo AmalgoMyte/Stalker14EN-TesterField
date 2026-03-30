@@ -1941,5 +1941,24 @@
   id: 205
   time: '2026-03-29T08:54:01.415282+00:00'
   url: https://github.com/coolmankid12345/stalker-14-EN/pull/726
+- author: Roland410 && @DuckManZach
+  changes:
+  - message: Fixes portals not linking up properly and them not being mapped properly
+      either.
+    type: Fix
+  - message: Opens up some places, that were locked to unused factions, such as Project,
+      Seraphim, etc.
+    type: Tweak
+  - message: Changes the Illegal Bar floor to be less ugly.
+    type: Tweak
+  - message: Translates the spawn NPC.
+    type: Tweak
+  - message: Warp point added for the Illegal Bar for staff/developers.
+    type: Add
+  - message: Changes Bolota to planet type, for easier mapping.
+    type: Tweak
+  id: 206
+  time: '2026-03-30T19:41:27.079536+00:00'
+  url: https://github.com/coolmankid12345/stalker-14-EN/pull/735
 Name: Stalker
 Order: -1

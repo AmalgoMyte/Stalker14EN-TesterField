@@ -1,3 +1,6 @@
+# guns need craftable to use modules
+# but i think something about RevolverAmmoProvider is blocking the autosear from working
+# therefor someone else investigate the c#
 - type: entity
   name: Mauser C96
   parent: STBaseWeaponGameRevolver
@@ -46,9 +49,10 @@
           - STModuleAutoSear
   - type: RepositoryItem
     categoryName: repository-weapons-category
+  - type: Craftable
 
 - type: entity
-  name: Red9 Resident Evil
+  name: Red9
   parent: STWeaponPistolC96
   suffix: ST
   id: STWeaponPistolC96RE
