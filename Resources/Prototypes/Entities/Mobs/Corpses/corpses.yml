@@ -23,7 +23,7 @@
   components:
   - type: Loadout
     prototypes:
-    - TechnicalAssistantGear
+    - TechnicalAssistantCorpseGear # Stalker Change EN
     - AtmosphericTechnicianGear
     - StationEngineerGear
 

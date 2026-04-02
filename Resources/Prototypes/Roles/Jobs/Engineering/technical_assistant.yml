@@ -31,6 +31,14 @@
     #back:
     #- Stuff
 
+- type: startingGear # Stalker Change EN
+  id: TechnicalAssistantCorpseGear
+  equipment:
+    shoes: ClothingShoesBootsWork
+    id: TechnicalAssistantPDA
+    belt: ClothingBeltUtilityEngineering
+    ears: ClothingHeadsetEngineering # Staklker Change EN:
+
 - type: chameleonOutfit
   id: TechnicalAssistantChameleonOutfit
   job: TechnicalAssistant
