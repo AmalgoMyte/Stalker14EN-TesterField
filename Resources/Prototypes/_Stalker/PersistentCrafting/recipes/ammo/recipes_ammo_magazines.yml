@@ -92,7 +92,7 @@
   id: PersistentCraftAmmoMagazineRecipe338Mag10
   name: persistent-craft-recipe-generic-name
   description: persistent-craft-recipe-generic-desc
-  displayProto: 338Mag10
+  displayProto: Base751Mag10
   branch: Ammo
   tier: 4
   requiredNode: PersistentCraftWeaponAmmoNodeT4
@@ -102,7 +102,7 @@
   - proto: STCraftAnomalyDust
     amount: 3
   results:
-  - proto: 338Mag10
+  - proto: Base751Mag10
   category: ammo
   subCategory: ammo-magazines
 
@@ -164,7 +164,7 @@
   id: PersistentCraftAmmoMagazineRecipeBasePP2000PearlMag
   name: persistent-craft-recipe-generic-name
   description: persistent-craft-recipe-generic-desc
-  displayProto: BasePP2000PearlMag
+  displayProto: VityazMag
   branch: Ammo
   tier: 2
   requiredNode: PersistentCraftWeaponAmmoNodeT2
@@ -174,7 +174,7 @@
   - proto: STCraftAnomalyDust
     amount: 3
   results:
-  - proto: BasePP2000PearlMag
+  - proto: VityazMag
   category: ammo
   subCategory: ammo-magazines
 
@@ -182,7 +182,7 @@
   id: PersistentCraftAmmoMagazineRecipeBasePP2000PearlMag20
   name: persistent-craft-recipe-generic-name
   description: persistent-craft-recipe-generic-desc
-  displayProto: BasePP2000PearlMag20
+  displayProto: VityazMag
   branch: Ammo
   tier: 2
   requiredNode: PersistentCraftWeaponAmmoNodeT2
@@ -192,7 +192,7 @@
   - proto: STCraftAnomalyDust
     amount: 3
   results:
-  - proto: BasePP2000PearlMag20
+  - proto: VityazMag
   category: ammo
   subCategory: ammo-magazines
 
@@ -812,7 +812,7 @@
   id: PersistentCraftAmmoMagazineRecipeBaseOTS126Mag
   name: persistent-craft-recipe-generic-name
   description: persistent-craft-recipe-generic-desc
-  displayProto: BaseOTS126Mag
+  displayProto: VityazMag
   branch: Ammo
   tier: 2
   requiredNode: PersistentCraftWeaponAmmoNodeT2
@@ -822,7 +822,7 @@
   - proto: STCraftAnomalyDust
     amount: 3
   results:
-  - proto: BaseOTS126Mag
+  - proto: VityazMag
   category: ammo
   subCategory: ammo-magazines
 
@@ -830,7 +830,7 @@
   id: PersistentCraftAmmoMagazineRecipeBasePP2000Mag
   name: persistent-craft-recipe-generic-name
   description: persistent-craft-recipe-generic-desc
-  displayProto: BasePP2000Mag
+  displayProto: VityazMag
   branch: Ammo
   tier: 1
   requiredNode: PersistentCraftWeaponAmmoNodeT1
@@ -840,7 +840,7 @@
   - proto: STCraftAnomalyDust
     amount: 3
   results:
-  - proto: BasePP2000Mag
+  - proto: VityazMag
   category: ammo
   subCategory: ammo-magazines
 
@@ -1190,7 +1190,7 @@
   id: PersistentCraftAmmoMagazineRecipeBase939MagVSK
   name: persistent-craft-recipe-generic-name
   description: persistent-craft-recipe-generic-desc
-  displayProto: Base939MagVSK
+  displayProto: Base939Mag10
   branch: Ammo
   tier: 5
   requiredNode: PersistentCraftWeaponAmmoNodeT5
@@ -1200,7 +1200,7 @@
   - proto: STCraftAnomalyDust
     amount: 3
   results:
-  - proto: Base939MagVSK
+  - proto: Base939Mag10
   category: ammo
   subCategory: ammo-magazines
 
@@ -1208,7 +1208,7 @@
   id: PersistentCraftAmmoMagazineRecipeBase545MagRPK
   name: persistent-craft-recipe-generic-name
   description: persistent-craft-recipe-generic-desc
-  displayProto: Base545MagRPK
+  displayProto: 545Mag45
   branch: Ammo
   tier: 3
   requiredNode: PersistentCraftWeaponAmmoNodeT3
@@ -1218,6 +1218,6 @@
   - proto: STCraftAnomalyDust
     amount: 3
   results:
-  - proto: Base545MagRPK
+  - proto: 545Mag45
   category: ammo
   subCategory: ammo-magazines
