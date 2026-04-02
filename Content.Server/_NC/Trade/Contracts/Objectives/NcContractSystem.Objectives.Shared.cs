@@ -258,6 +258,16 @@ public sealed partial class NcContractSystem : EntitySystem
             state.GuardEntities.Clear();
         }
 
+        var deliverySupportEntity = state.DeliverySupportEntity;
+        state.DeliverySupportEntity = null;
+
+        if (deleteTrackedEntities &&
+            deliverySupportEntity is { } supportEntity &&
+            !TerminatingOrDeleted(supportEntity))
+        {
+            Del(supportEntity);
+        }
+
         var proof = state.ProofEntity;
         state.ProofEntity = null;
         state.ProofSpawned = false;
@@ -309,6 +319,7 @@ public sealed partial class NcContractSystem : EntitySystem
         public bool DeliveryDropoffCompleted;
         public MapCoordinates? DeliveryDropoffCoordinates;
         public EntityUid? DeliveryDropoffEntity;
+        public EntityUid? DeliverySupportEntity;
         public readonly List<EntityUid> GuardEntities = new();
         public readonly HashSet<EntityUid> PinpointerEntities = new();
         public TimeSpan? GhostRoleAcceptDeadline;

@@ -153,8 +153,9 @@ public sealed partial class NcContractSystem : EntitySystem
             return false;
 
         var key = (store, contractId);
+        var state = GetOrCreateObjectiveRuntimeState(key);
         return TryInitializeInventoryDeliverySupportGuards(key, config, spawnCoords)
-            && TrySpawnInventoryDeliverySupportEntity(key, spawnProtoId, spawnCoords);
+            && TrySpawnInventoryDeliverySupportEntity(key, state, spawnProtoId, spawnCoords);
     }
 
     private bool TryValidateInventoryDeliverySupportPrototype(string contractId, string spawnProtoId)
@@ -198,12 +199,13 @@ public sealed partial class NcContractSystem : EntitySystem
 
     private bool TrySpawnInventoryDeliverySupportEntity(
         (EntityUid Store, string ContractId) key,
+        ObjectiveRuntimeState state,
         string spawnProtoId,
         EntityCoordinates spawnCoords)
     {
         try
         {
-            Spawn(spawnProtoId, spawnCoords);
+            state.DeliverySupportEntity = Spawn(spawnProtoId, spawnCoords);
             return true;
         }
         catch (Exception e)
