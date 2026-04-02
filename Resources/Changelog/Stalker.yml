@@ -2067,5 +2067,12 @@
   id: 218
   time: '2026-04-01T21:52:16.595317+00:00'
   url: https://github.com/coolmankid12345/stalker-14-EN/pull/739
+- author: CattyLucky
+  changes:
+  - message: New CraftSystems with metaprogresion
+    type: Add
+  id: 219
+  time: '2026-04-02T21:12:12.369584+00:00'
+  url: https://github.com/coolmankid12345/stalker-14-EN/pull/748
 Name: Stalker
 Order: -1
