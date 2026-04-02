@@ -8,6 +8,8 @@
                           Margin="8">
                 <CheckBox Name="EmissionSimpleVisualsCheckbox"
                           Text="{Loc 'ui-options-simple-emission'}"/>
+                <CheckBox Name="PdaNotificationsCheckbox"
+                          Text="{Loc 'ui-options-pda-notifications'}"/>
             </BoxContainer>
         </ScrollContainer>
         <ui:OptionsTabControlRow Name="Control"

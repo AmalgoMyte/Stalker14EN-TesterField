@@ -11,6 +11,7 @@ using Content.Shared._Stalker_EN.FactionRelations;
 using Content.Shared._Stalker_EN.BulletinBoard;
 using Content.Shared._Stalker_EN.News;
 using Content.Shared._Stalker_EN.PdaMessenger;
+using Content.Shared._Stalker.PdaMessenger;
 using Content.Shared.CartridgeLoader;
 using Content.Shared.Database;
 using Content.Shared.GameTicking;
@@ -19,7 +20,9 @@ using Content.Shared.Inventory;
 using Content.Shared.Inventory.Events;
 using Content.Shared.PDA;
 using Content.Shared.PDA.Ringer;
+using Robust.Server.Player;
 using Robust.Shared.Configuration;
+using Robust.Shared.Network;
 using Robust.Shared.Player;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Random;
@@ -47,6 +50,7 @@ public sealed partial class STMessengerSystem : EntitySystem
     [Dependency] private readonly IRobustRandom _random = default!;
     [Dependency] private readonly RingerSystem _ringer = default!;
     [Dependency] private readonly SharedSTFactionResolutionSystem _factionResolution = default!;
+    [Dependency] private readonly IPlayerManager _playerManager = default!;
 
     private const int MaxChannelMessages = 200;
     private const int MaxDmMessages = 100;
@@ -437,6 +441,13 @@ public sealed partial class STMessengerSystem : EntitySystem
                 }
             }
 
+            // Send pop-up notification to DM recipient
+            var dmEvent = new PdaDirectMessageEvent(senderName, content, ResolveContactFaction(senderKey));
+            if (_playerManager.TryGetSessionById(new NetUserId(contactKey.UserId), out var recipientSession))
+            {
+                RaiseNetworkEvent(dmEvent, recipientSession);
+            }
+
             NotifyDmRecipient(contactKey, server);
         }
         else
@@ -447,9 +458,46 @@ public sealed partial class STMessengerSystem : EntitySystem
             }
 
             NotifyChannelRecipients(channelProto, server);
+
+            // Send pop-up notification for General channel (if not muted)
+            if (channelProto.ID == "STGeneral")
+            {
+                var bandId = GetBandId(server);
+
+                // Check if recipient has General channel muted
+                if (!server.MutedChannels.Contains(channelProto.ID))
+                {
+                    var generalEvent = new PdaGeneralMessageEvent(displayName, content, displayName, bandId);
+                    RaiseNetworkEvent(generalEvent);
+                }
+            }
         }
 
         BroadcastUiUpdate(chatId);
+    }
+
+    /// <summary>
+    /// Gets the band ID for a player based on their band/faction.
+    /// </summary>
+    private string? GetBandId(STMessengerServerComponent server)
+    {
+        if (!TryComp<BandsComponent>(server.Owner, out var bands))
+        {
+            if (server.OwnerBand.HasValue)
+                return server.OwnerBand.Value.Id;
+
+            return null;
+        }
+
+        if (bands.BandProto is not { } bandProtoId)
+        {
+            if (server.OwnerBand.HasValue)
+                return server.OwnerBand.Value.Id;
+
+            return null;
+        }
+
+        return bandProtoId.Id;
     }
 
     private string? FindReplySnippet(string chatId, bool isDm, STMessengerServerComponent server, uint replyId)

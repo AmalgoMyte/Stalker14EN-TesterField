@@ -77,6 +77,13 @@ public sealed partial class CCCCVars
     public static readonly CVarDef<string> DiscordPdaMessageWebhook =
         CVarDef.Create("discord.round_pda_message_webhook", string.Empty, CVar.SERVERONLY | CVar.CONFIDENTIAL);
 
+    /// <summary>
+    /// Enable PDA General channel pop-up notifications.
+    /// Client-side preference, saved between sessions.
+    /// </summary>
+    public static readonly CVarDef<bool> PdaNotificationsEnabled =
+        CVarDef.Create("stalker.pda_notifications_enabled", true, CVar.CLIENTONLY);
+
     /*
     * Stalker OpenRouter KEY
     */
