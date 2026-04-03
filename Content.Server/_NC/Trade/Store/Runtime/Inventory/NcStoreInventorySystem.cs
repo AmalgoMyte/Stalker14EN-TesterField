@@ -67,6 +67,9 @@ public sealed class NcStoreInventorySystem : EntitySystem
 
     private void OnEntityTerminating(ref EntityTerminatingEvent ev)
     {
+        if (_inventoryCache.Count == 0)
+            return;
+
         _inventoryCache.Remove(ev.Entity);
 
         foreach (var entry in _inventoryCache.Values)

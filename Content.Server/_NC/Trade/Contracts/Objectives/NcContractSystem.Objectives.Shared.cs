@@ -8,6 +8,11 @@ public sealed partial class NcContractSystem : EntitySystem
     // Shared objective lifecycle, resolution and progress.
     private void OnObjectiveTrackedEntityTerminating(ref EntityTerminatingEvent args)
     {
+        if (_objectiveRuntimeByTarget.Count == 0
+            && _objectiveRuntimeByPinpointer.Count == 0
+            && _objectiveRuntimeByGuard.Count == 0)
+            return;
+
         if (_objectiveRuntimeByTarget.TryGetValue(args.Entity, out var targetKey))
             OnObjectiveTrackedTargetResolved(targetKey, args.Entity);
 
