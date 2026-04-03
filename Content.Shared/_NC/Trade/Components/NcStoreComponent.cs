@@ -1,12 +1,9 @@
-using Robust.Shared.GameStates;
-
-
 namespace Content.Shared._NC.Trade;
 
 
 public readonly record struct StoreListingKey(StoreMode Mode, string ListingId);
 
-[RegisterComponent, NetworkedComponent]
+[RegisterComponent]
 public sealed partial class NcStoreComponent : Component
 {
     public int CatalogRevision;
