@@ -337,6 +337,7 @@
         DrinkB52Glass: 150
         DrinkLongIslandIcedTeaGlass: 420 # Long Island Time
         STDrinkYevishWineBottleFull: 2000
+        HerculesBottleFull: 200
 
     - name: shop-category-armor
       priority: 7
