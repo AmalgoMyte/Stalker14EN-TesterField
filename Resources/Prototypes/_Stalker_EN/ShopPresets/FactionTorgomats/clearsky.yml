@@ -343,9 +343,10 @@
       ClothingOuterCoatAugust: 2500
       ClothingOuterCoatAugustM: 3000
       # Gasmasks
-      ClothingMaskGasChN: 100 # T1
-      ClothingMaskGasM40: 400 # T2
-      ClothingMaskGP21: 1000 # T3
+      ClothingMaskGasChN: 500 # T1
+      ClothingMaskGasM40: 1500 # T2
+      ClothingMaskM50: 3800 # T3
+      ClothingMaskGP21: 7500 # T4
 
   - name: shop-category-research-equipment
     priority: 9

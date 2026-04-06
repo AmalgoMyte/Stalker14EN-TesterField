@@ -262,8 +262,10 @@
         ClothingOuterCoatLoyalist: 3000
         ClothingOuterCoatEmergencyResourcePouch: 3500
           # Gasmasks
-        ClothingMaskGasM40: 200 # T2
-        ClothingMaskM51: 1000
+        ClothingMaskXoma: 300 # T1
+        STClothingMaskGasPPM88: 1000 # T2
+        ClothingMaskGP7: 3400 # T3
+        ClothingMaskGP21: 7500 # T4
 
     - name: shop-category-research-equipment
       priority: 9

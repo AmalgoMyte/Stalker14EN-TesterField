@@ -278,9 +278,9 @@
       ClothingOuterCoatLoyalist: 3000
       ClothingOuterCoatPoisk: 500 # t0
       # Gasmasks
-      ClothingMaskGasZarya: 90 # T1
-      ClothingMaskGP5: 350 # T2
-      STClothingMaskGP7Neutral: 900  # T3
+      ClothingMaskGasZarya: 600 # T1
+      ClothingMaskGP5: 500 # T1
+      STClothingMaskGP7Neutral: 3800  # T3
 
   - name: shop-category-research-equipment
     priority: 9
