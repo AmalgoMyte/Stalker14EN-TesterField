@@ -4,8 +4,8 @@ meta:
   engineVersion: 268.0.0
   forkId: ""
   forkVersion: ""
-  time: 04/08/2026 13:54:54
-  entityCount: 11296
+  time: 04/08/2026 14:20:24
+  entityCount: 11297
 maps:
 - 2
 grids:
@@ -29095,6 +29095,13 @@ entities:
     components:
     - type: Transform
       pos: 64.5,-6.5
+      parent: 2
+- proto: RedForest-JupiterPlant
+  entities:
+  - uid: 11297
+    components:
+    - type: Transform
+      pos: 108.5,-153.5
       parent: 2
 - proto: SignalButton
   entities:
